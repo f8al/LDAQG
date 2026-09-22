@@ -1,0 +1,109 @@
+name: Submit a category or clue
+description: Propose original categories and answer-question pairs without editing the game data.
+title: "[Content] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping write the game. Submit one complete category when possible. Clues must be original, fact-checkable, and written so the accepted response can be phrased as a question.
+
+  - type: dropdown
+    id: round
+    attributes:
+      label: Round
+      description: Recon uses 100–500 values. Lateral Movement uses 200–1000 values.
+      options:
+        - Recon
+        - Lateral Movement
+        - Either round
+        - Exfil final
+    validations:
+      required: true
+
+  - type: input
+    id: category
+    attributes:
+      label: Category name
+      placeholder: Example — Malware or Metal Band
+    validations:
+      required: true
+
+  - type: textarea
+    id: pitch
+    attributes:
+      label: Category premise
+      description: Briefly explain the joke, theme, or knowledge being tested.
+      placeholder: Contestants decide whether each name belongs to malware or a metal band.
+    validations:
+      required: true
+
+  - type: textarea
+    id: clues
+    attributes:
+      label: Clues and accepted questions
+      description: Submit five clues for a category. Use the correct point ladder for the selected round.
+      value: |
+        ### 100 / 200
+        **Clue:**
+        **Accepted question:** What is…?
+        **Judge note (optional):**
+
+        ### 200 / 400
+        **Clue:**
+        **Accepted question:** What is…?
+        **Judge note (optional):**
+
+        ### 300 / 600
+        **Clue:**
+        **Accepted question:** What is…?
+        **Judge note (optional):**
+
+        ### 400 / 800
+        **Clue:**
+        **Accepted question:** What is…?
+        **Judge note (optional):**
+
+        ### 500 / 1000
+        **Clue:**
+        **Accepted question:** What is…?
+        **Judge note (optional):**
+    validations:
+      required: true
+
+  - type: textarea
+    id: sources
+    attributes:
+      label: Fact-checking sources
+      description: Link authoritative sources for claims that are obscure, current, disputed, or easy to misstate. Do not paste copyrighted question-bank text.
+      placeholder: One URL per line, with a note about which clue it supports.
+
+  - type: dropdown
+    id: zero_day
+    attributes:
+      label: Zero Day candidate
+      description: Should one clue be considered for a hidden wager square? The host team makes the final selection.
+      options:
+        - No
+        - Yes — explain which clue below
+    validations:
+      required: true
+
+  - type: textarea
+    id: lifeline
+    attributes:
+      label: Optional lifeline
+      description: If this category supports an audience lifeline, describe the instruction and optional flag text.
+      placeholder: Audience instruction, eligible clue, and optional flag{value}.
+
+  - type: checkboxes
+    id: rights
+    attributes:
+      label: Content checks
+      options:
+        - label: I wrote these clues myself and did not copy them from a TV episode, archive, trivia database, or another question set.
+          required: true
+        - label: I checked that each accepted response is accurate and phrased as a question.
+          required: true
+        - label: I avoided the TV show's name, trademarked segment names, visual branding, and music.
+          required: true
+

@@ -36,6 +36,12 @@ node scripts/validate-data.mjs
 
 The included GitHub Action runs the same check before publishing.
 
+### Contributing content
+
+- Writers who do not want to edit JSON can open the **Submit a category or clue** issue form. It collects the round, category premise, five clues, accepted questions, sources, Zero Day ideas, and optional lifeline details.
+- Writers working directly in the repository should open a pull request. The PR template includes originality, value-ladder, fact-checking, formatting, and validation checks.
+- Submit one complete category per issue or a small, reviewable group of categories per pull request.
+
 ### CSV workflow
 
 Copy [`data/questions-template.csv`](data/questions-template.csv) and keep its header row. CSV columns are:
