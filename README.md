@@ -36,6 +36,16 @@ node scripts/validate-data.mjs
 
 The included GitHub Action runs the same check before publishing.
 
+To merge another complete JSON submission without duplicating existing categories or clues, preview it first and then write it:
+
+```powershell
+node scripts/merge-question-data.mjs path/to/submission.json
+node scripts/merge-question-data.mjs path/to/submission.json --write
+node scripts/validate-data.mjs
+```
+
+The merge command normalizes category names and clue/answer text, reports everything added or skipped, and preserves the configured Exfil audio across imported final questions.
+
 ### Contributing content
 
 - Writers who do not want to edit JSON can open the **Submit a category or clue** issue form. It collects the round, category premise, five clues, accepted questions, sources, Zero Day ideas, and optional lifeline details.

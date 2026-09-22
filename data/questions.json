@@ -704,6 +704,159 @@
               "answer": "What is Adobe Flash Player?"
             }
           ]
+        },
+        {
+          "name": "It Is Always DNS",
+          "clues": [
+            {
+              "value": 100,
+              "clue": "The infosec haiku about outages always ends with this three letter answer.",
+              "answer": "What is DNS?"
+            },
+            {
+              "value": 200,
+              "clue": "This record type maps a hostname to an IPv4 address.",
+              "answer": "What is an A record?"
+            },
+            {
+              "value": 300,
+              "clue": "This value decides how long resolvers keep serving your mistake.",
+              "answer": "What is the TTL?"
+            },
+            {
+              "value": 400,
+              "clue": "Forgetting to update this alias record is why traffic still reaches the decommissioned server.",
+              "answer": "What is the CNAME?"
+            },
+            {
+              "value": 500,
+              "clue": "An abandoned CNAME pointing at unclaimed cloud infrastructure enables this attack.",
+              "answer": "What is subdomain takeover?",
+              "zeroDay": true
+            }
+          ]
+        },
+        {
+          "name": "Kubernetes or Klingon",
+          "clues": [
+            {
+              "value": 100,
+              "clue": "Qapla: Kubernetes or Klingon?",
+              "answer": "What is Klingon?"
+            },
+            {
+              "value": 200,
+              "clue": "kubelet: Kubernetes or Klingon?",
+              "answer": "What is Kubernetes?"
+            },
+            {
+              "value": 300,
+              "clue": "etcd: Kubernetes or Klingon?",
+              "answer": "What is Kubernetes?"
+            },
+            {
+              "value": 400,
+              "clue": "nuqneH: Kubernetes or Klingon?",
+              "answer": "What is Klingon?",
+              "lifeline": "Audience may shout one guess.",
+              "flag": "flag{today_is_a_good_day_to_deploy}"
+            },
+            {
+              "value": 500,
+              "clue": "Istio: Kubernetes or Klingon?",
+              "answer": "What is Kubernetes?"
+            }
+          ]
+        },
+        {
+          "name": "Linux Distro or Prescription Drug",
+          "clues": [
+            {
+              "value": 100,
+              "clue": "Ubuntu: distro or prescription drug?",
+              "answer": "What is a distro?"
+            },
+            {
+              "value": 200,
+              "clue": "Ozempic: distro or prescription drug?",
+              "answer": "What is a prescription drug?"
+            },
+            {
+              "value": 300,
+              "clue": "Manjaro: distro or prescription drug?",
+              "answer": "What is a distro?"
+            },
+            {
+              "value": 400,
+              "clue": "Lisinopril: distro or prescription drug?",
+              "answer": "What is a prescription drug?"
+            },
+            {
+              "value": 500,
+              "clue": "Solus: distro or prescription drug?",
+              "answer": "What is a distro?"
+            }
+          ]
+        },
+        {
+          "name": "Log Message or Cry For Help",
+          "clues": [
+            {
+              "value": 100,
+              "clue": "Connection reset by peer: log message or cry for help?",
+              "answer": "What is a log message?"
+            },
+            {
+              "value": 200,
+              "clue": "Refusing to merge unrelated histories: log message or cry for help?",
+              "answer": "What is a log message (git)?"
+            },
+            {
+              "value": 300,
+              "clue": "It works on my machine: log message or cry for help?",
+              "answer": "What is a cry for help?"
+            },
+            {
+              "value": 400,
+              "clue": "Killed: log message or cry for help?",
+              "answer": "What is a log message (the OOM killer)?"
+            },
+            {
+              "value": 500,
+              "clue": "Please stop paging me about this disk: log message or cry for help?",
+              "answer": "What is a cry for help?"
+            }
+          ]
+        },
+        {
+          "name": "Con Swag and Badge Life",
+          "clues": [
+            {
+              "value": 100,
+              "clue": "This DEF CON tradition turned attendees into part time soldering hobbyists.",
+              "answer": "What is the electronic badge?"
+            },
+            {
+              "value": 200,
+              "clue": "This village hands out practice padlocks and quietly ruins your trust in door hardware.",
+              "answer": "What is the Lockpick Village?"
+            },
+            {
+              "value": 300,
+              "clue": "Vendors trade this for your badge scan and three years of email.",
+              "answer": "What is swag (a t-shirt)?"
+            },
+            {
+              "value": 400,
+              "clue": "This conference network is regularly described as the most hostile on earth.",
+              "answer": "What is the DEF CON network?"
+            },
+            {
+              "value": 500,
+              "clue": "Wearing every badge you have ever earned on one lanyard earns this nickname.",
+              "answer": "What is badge life (a badge collector)?"
+            }
+          ]
         }
       ]
     },
@@ -1417,6 +1570,159 @@
               "answer": "What is 90?"
             }
           ]
+        },
+        {
+          "name": "CISO Bingo",
+          "clues": [
+            {
+              "value": 200,
+              "clue": "Every board deck opens by calling the threat landscape this.",
+              "answer": "What is evolving?"
+            },
+            {
+              "value": 400,
+              "clue": "This kind of metric gets presented because the meaningful ones look bad.",
+              "answer": "What is a vanity metric?"
+            },
+            {
+              "value": 600,
+              "clue": "Executives demand this single color coded picture that summarizes all organizational risk.",
+              "answer": "What is a heat map?"
+            },
+            {
+              "value": 800,
+              "clue": "Buying a product instead of fixing the underlying process gets you this dismissive label.",
+              "answer": "What is a point solution?",
+              "zeroDay": true
+            },
+            {
+              "value": 1000,
+              "clue": "Industry surveys keep measuring this statistic for security leaders, often quoted between two and four years.",
+              "answer": "What is CISO tenure (turnover)?"
+            }
+          ]
+        },
+        {
+          "name": "Zero Trust Buzzword Bingo",
+          "clues": [
+            {
+              "value": 200,
+              "clue": "Zero trust replaces castle and moat thinking with this assumption.",
+              "answer": "What is assume breach?"
+            },
+            {
+              "value": 400,
+              "clue": "This principle grants only the access a task actually requires.",
+              "answer": "What is least privilege?"
+            },
+            {
+              "value": 600,
+              "clue": "Segmenting all the way down to individual workloads is called this.",
+              "answer": "What is microsegmentation?"
+            },
+            {
+              "value": 800,
+              "clue": "In zero trust architecture, this becomes the new perimeter.",
+              "answer": "What is identity?"
+            },
+            {
+              "value": 1000,
+              "clue": "This NIST special publication number defines zero trust architecture.",
+              "answer": "What is 800-207?"
+            }
+          ]
+        },
+        {
+          "name": "Marketing Term or Real Technique",
+          "clues": [
+            {
+              "value": 200,
+              "clue": "Next generation firewall: marketing term or real technique?",
+              "answer": "What is a real product category?"
+            },
+            {
+              "value": 400,
+              "clue": "AI powered threat sentience: marketing term or real technique?",
+              "answer": "What is a marketing term?"
+            },
+            {
+              "value": 600,
+              "clue": "Deception technology: marketing term or real technique?",
+              "answer": "What is a real technique (honeypots and decoys)?"
+            },
+            {
+              "value": 800,
+              "clue": "Self healing endpoint: marketing term or real technique?",
+              "answer": "What is a marketing term?",
+              "lifeline": "Audience vote, majority rules.",
+              "flag": "flag{single_pane_of_pain}"
+            },
+            {
+              "value": 1000,
+              "clue": "Attack surface management: marketing term or real technique?",
+              "answer": "What is a real technique?"
+            }
+          ]
+        },
+        {
+          "name": "On Call At 3 AM",
+          "clues": [
+            {
+              "value": 200,
+              "clue": "You configured this system yourself and it now wakes you up.",
+              "answer": "What is the pager (on call alerting)?"
+            },
+            {
+              "value": 400,
+              "clue": "The nightly alert everyone has learned to swipe away causes this condition.",
+              "answer": "What is alert fatigue?"
+            },
+            {
+              "value": 600,
+              "clue": "This document exists so nobody has to think clearly at 3 a.m.",
+              "answer": "What is a runbook?"
+            },
+            {
+              "value": 800,
+              "clue": "This blameless meeting happens once the fire is out and the coffee is cold.",
+              "answer": "What is the postmortem?"
+            },
+            {
+              "value": 1000,
+              "clue": "This metric measures the gap between the alert firing and a human actually starting work.",
+              "answer": "What is mean time to acknowledge?"
+            }
+          ]
+        },
+        {
+          "name": "Old School Internet",
+          "clues": [
+            {
+              "value": 200,
+              "clue": "This browser lost the first browser war and its code became Firefox.",
+              "answer": "What is Netscape Navigator?"
+            },
+            {
+              "value": 400,
+              "clue": "This 1988 chat protocol still hosts more real security discussion than vendors realize.",
+              "answer": "What is IRC?"
+            },
+            {
+              "value": 600,
+              "clue": "This free web host covered the 1990s in animated GIFs and under construction banners.",
+              "answer": "What is GeoCities?"
+            },
+            {
+              "value": 800,
+              "clue": "Phreakers used this tone generating device to seize long distance trunks.",
+              "answer": "What is a blue box?"
+            },
+            {
+              "value": 1000,
+              "clue": "This long running hacker quarterly takes its name from a 2600 hertz tone.",
+              "answer": "What is 2600?"
+            }
+          ]
         }
       ]
     }
@@ -1465,6 +1771,111 @@
       "clue": "Every framework, control, and appliance ultimately depends on this person doing the right thing at 4:55 on a Friday.",
       "answer": "What is the end user?",
       "note": "Accept the analyst or the employee.",
+      "audio": "assets/audio/bad-recital-final-round.mp3"
+    },
+    {
+      "name": "Exfil",
+      "shortName": "Exfil",
+      "category": "Defense Strategy",
+      "clue": "Layering independent controls so that one failure does not become a breach describes this strategy.",
+      "answer": "What is defense in depth?",
+      "note": "Accept layered security.",
+      "audio": "assets/audio/bad-recital-final-round.mp3"
+    },
+    {
+      "name": "Exfil",
+      "shortName": "Exfil",
+      "category": "Access Control",
+      "clue": "This principle says every account gets exactly the access its job requires and nothing more.",
+      "answer": "What is least privilege?",
+      "note": "Accept principle of least privilege.",
+      "audio": "assets/audio/bad-recital-final-round.mp3"
+    },
+    {
+      "name": "Exfil",
+      "shortName": "Exfil",
+      "category": "Know Your Environment",
+      "clue": "You cannot defend what you never knew you owned, which is why this unglamorous list sits at the top of most control frameworks.",
+      "answer": "What is an asset inventory?",
+      "note": "Accept asset management.",
+      "audio": "assets/audio/bad-recital-final-round.mp3"
+    },
+    {
+      "name": "Exfil",
+      "shortName": "Exfil",
+      "category": "Ransomware Reality",
+      "clue": "The one control that reliably beats ransomware is this, assuming it is tested, offline, and not encrypted along with everything else.",
+      "answer": "What are backups?",
+      "note": "Accept offline or immutable backups.",
+      "audio": "assets/audio/bad-recital-final-round.mp3"
+    },
+    {
+      "name": "Exfil",
+      "shortName": "Exfil",
+      "category": "Practice Makes Prepared",
+      "clue": "This low cost exercise walks leadership through an incident using nothing but a scenario and a conference room.",
+      "answer": "What is a tabletop exercise?",
+      "note": "Accept tabletop.",
+      "audio": "assets/audio/bad-recital-final-round.mp3"
+    },
+    {
+      "name": "Exfil",
+      "shortName": "Exfil",
+      "category": "Unofficial Infrastructure",
+      "clue": "This term covers the SaaS accounts and servers your team runs that security has never heard of.",
+      "answer": "What is shadow IT?",
+      "audio": "assets/audio/bad-recital-final-round.mp3"
+    },
+    {
+      "name": "Exfil",
+      "shortName": "Exfil",
+      "category": "Attack Models",
+      "clue": "Lockheed Martin popularized this seven stage model of an intrusion, from reconnaissance through actions on objectives.",
+      "answer": "What is the cyber kill chain?",
+      "note": "Accept kill chain.",
+      "audio": "assets/audio/bad-recital-final-round.mp3"
+    },
+    {
+      "name": "Exfil",
+      "shortName": "Exfil",
+      "category": "Deception",
+      "clue": "This deliberately vulnerable system exists only to be attacked, so defenders can watch.",
+      "answer": "What is a honeypot?",
+      "note": "Accept honeynet or decoy.",
+      "audio": "assets/audio/bad-recital-final-round.mp3"
+    },
+    {
+      "name": "Exfil",
+      "shortName": "Exfil",
+      "category": "Forensics",
+      "clue": "Break this documented sequence of custody and your beautiful forensic evidence becomes useless in court.",
+      "answer": "What is the chain of custody?",
+      "audio": "assets/audio/bad-recital-final-round.mp3"
+    },
+    {
+      "name": "Exfil",
+      "shortName": "Exfil",
+      "category": "Unsexy Fundamentals",
+      "clue": "This ongoing program prevents more breaches than any appliance and gets the least budget.",
+      "answer": "What is patch management?",
+      "note": "Accept vulnerability management.",
+      "audio": "assets/audio/bad-recital-final-round.mp3"
+    },
+    {
+      "name": "Exfil",
+      "shortName": "Exfil",
+      "category": "Isolation",
+      "clue": "This isolation strategy is defeated the moment somebody walks up with a USB drive.",
+      "answer": "What is an air gap?",
+      "audio": "assets/audio/bad-recital-final-round.mp3"
+    },
+    {
+      "name": "Exfil",
+      "shortName": "Exfil",
+      "category": "First Principles",
+      "clue": "Confidentiality, integrity, and availability together form this foundational model.",
+      "answer": "What is the CIA triad?",
+      "note": "Accept the security triad.",
       "audio": "assets/audio/bad-recital-final-round.mp3"
     }
   ]
