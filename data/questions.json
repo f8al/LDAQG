@@ -857,6 +857,41 @@
               "answer": "What is badge life (a badge collector)?"
             }
           ]
+        },
+        {
+          "name": "Cybersecurity for Extremely Famous People",
+          "clues": [
+            {
+              "value": 100,
+              "clue": "This secret string comes after your username, and using the word password as this is considered poor form.",
+              "answer": "What is a password?",
+              "note": "Do not accept username, even if delivered with confidence."
+            },
+            {
+              "value": 200,
+              "clue": "This fishing trip starts with PH and usually tries to steal credentials instead of trout.",
+              "answer": "What is phishing?",
+              "note": "Accept spear phishing only if the contestant can explain the difference."
+            },
+            {
+              "value": 300,
+              "clue": "This baked good is also a small browser file that remembers things about your visit.",
+              "answer": "What is a cookie?",
+              "note": "Do not accept a brownie, regardless of how browser-compatible it sounds."
+            },
+            {
+              "value": 400,
+              "clue": "This wall made of fire filters network traffic and should not require an actual fire extinguisher.",
+              "answer": "What is a firewall?",
+              "note": "Accept network firewall or host firewall."
+            },
+            {
+              "value": 500,
+              "clue": "Named for a wooden gift with a very bad payload, this malware pretends to be useful software.",
+              "answer": "What is a Trojan horse?",
+              "note": "Accept Trojan. Do not accept horse."
+            }
+          ]
         }
       ]
     },
