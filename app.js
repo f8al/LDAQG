@@ -54,7 +54,8 @@ function defaultState() {
     used: [],
     history: [],
     finalRevealed: false,
-    categorySelections: []
+    categorySelections: [],
+    finalSelection: null
   };
 }
 
@@ -99,12 +100,17 @@ function validateGame(data) {
       });
     });
   });
+  const finals = Array.isArray(data.finalPool) && data.finalPool.length ? data.finalPool : [data.final];
+  finals.forEach((final, finalIndex) => {
+    if (!final?.category || !final?.clue || !final?.answer) throw new Error(`Final question ${finalIndex + 1} needs category, clue, and answer.`);
+  });
 }
 
 function render() {
   if (!game) return;
   state.roundIndex = Math.min(state.roundIndex, game.rounds.length);
   ensureCategorySelections();
+  ensureFinalSelection();
   renderRoundNav();
   renderTeams();
   renderTeamInputs();
@@ -122,8 +128,9 @@ function renderRoundNav() {
     button.addEventListener("click", () => { stopFinalAudio(); state.roundIndex = index; render(); });
     elements.roundNav.append(button);
   });
-  if (game.final) {
-    const button = makeButton(game.final.shortName || "Exfil", "button round-button");
+  const selectedFinal = getSelectedFinal();
+  if (selectedFinal) {
+    const button = makeButton(selectedFinal.shortName || "Exfil", "button round-button");
     button.setAttribute("aria-current", String(state.roundIndex === game.rounds.length));
     button.addEventListener("click", () => { state.roundIndex = game.rounds.length; render(); });
     elements.roundNav.append(button);
@@ -170,10 +177,11 @@ function renderBoard() {
 }
 
 function renderFinal() {
-  const final = game.final;
+  const final = getSelectedFinal();
+  const finalCount = getFinalCandidates().length;
   elements.board.hidden = true;
   elements.finalBoard.hidden = false;
-  elements.roundKicker.textContent = "FINAL ROUND";
+  elements.roundKicker.textContent = `FINAL ROUND · 1 OF ${finalCount} DRAWN`;
   elements.roundTitle.textContent = final?.name || "Exfil";
   elements.finalBoard.replaceChildren();
   if (!final) {
@@ -408,10 +416,12 @@ function undoScore() {
 }
 
 function resetGame() {
-  if (!confirm(`Reset scores, flags, every used square, and draw ${CATEGORIES_PER_ROUND} new categories per round? Team names will be kept.`)) return;
+  if (!confirm(`Reset scores, flags, every used square, draw ${CATEGORIES_PER_ROUND} new categories per round, and draw a new Exfil question? Team names will be kept.`)) return;
   const names = state.teams.map((team) => team.name);
+  const previousFinalIndex = state.finalSelection?.index;
   state = defaultState();
   state.teams.forEach((team, index) => { team.name = names[index]; });
+  state.finalSelection = { avoidIndex: previousFinalIndex };
   render();
 }
 
@@ -428,6 +438,7 @@ async function loadLocalFile(event) {
     state.used = [];
     state.finalRevealed = false;
     state.categorySelections = [];
+    state.finalSelection = null;
     elements.dataSourceLabel.textContent = `Loaded locally: ${file.name} (refresh returns to the site file)`;
     elements.errorPanel.hidden = true;
     render();
@@ -500,6 +511,37 @@ function toggleFullscreen() {
 }
 
 function clueKey(round, category, clue) { return `${round}-${category}-${clue}`; }
+function getFinalCandidates() {
+  if (Array.isArray(game?.finalPool) && game.finalPool.length) return game.finalPool;
+  return game?.final ? [game.final] : [];
+}
+function getSelectedFinal() {
+  const candidates = getFinalCandidates();
+  if (!candidates.length) return null;
+  return candidates[state.finalSelection?.index] || candidates[0];
+}
+function ensureFinalSelection() {
+  const candidates = getFinalCandidates();
+  if (!candidates.length) {
+    state.finalSelection = null;
+    return;
+  }
+  const signature = candidates.map((final) => `${final.category}\u001f${final.clue}\u001f${final.answer}`).join("\u001e");
+  const saved = state.finalSelection;
+  const valid = saved
+    && saved.signature === signature
+    && Number.isInteger(saved.index)
+    && saved.index >= 0
+    && saved.index < candidates.length;
+  if (!valid) {
+    const eligibleIndices = candidates
+      .map((_, index) => index)
+      .filter((index) => candidates.length === 1 || index !== saved?.avoidIndex);
+    const index = eligibleIndices[Math.floor(Math.random() * eligibleIndices.length)];
+    state.finalSelection = { signature, index };
+    state.finalRevealed = false;
+  }
+}
 function ensureCategorySelections() {
   if (!Array.isArray(state.categorySelections)) state.categorySelections = [];
   game.rounds.forEach((round, roundIndex) => {

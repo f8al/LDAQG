@@ -1438,7 +1438,7 @@
       "clue": "This kind of insider causes most damage without any malice at all, usually by clicking or misconfiguring something.",
       "answer": "What is a negligent insider?",
       "note": "Accept unintentional or accidental insider.",
-      "audio": "assets/audio/two-kids-final-round.mp3"
+      "audio": "assets/audio/bad-recital-final-round.mp3"
     },
     {
       "name": "Exfil",
@@ -1447,7 +1447,7 @@
       "clue": "This word describes assigning an intrusion to a specific actor, and it is the fastest way to start an argument among analysts.",
       "answer": "What is attribution?",
       "note": "Accept confident attribution at judge discretion.",
-      "audio": "assets/audio/two-kids-final-round.mp3"
+      "audio": "assets/audio/bad-recital-final-round.mp3"
     },
     {
       "name": "Exfil",
@@ -1456,7 +1456,7 @@
       "clue": "This calculation multiplies likelihood by impact and produces a number everyone quietly disagrees with.",
       "answer": "What is risk scoring?",
       "note": "Accept qualitative risk assessment.",
-      "audio": "assets/audio/two-kids-final-round.mp3"
+      "audio": "assets/audio/bad-recital-final-round.mp3"
     },
     {
       "name": "Exfil",
@@ -1465,7 +1465,7 @@
       "clue": "Every framework, control, and appliance ultimately depends on this person doing the right thing at 4:55 on a Friday.",
       "answer": "What is the end user?",
       "note": "Accept the analyst or the employee.",
-      "audio": "assets/audio/two-kids-final-round.mp3"
+      "audio": "assets/audio/bad-recital-final-round.mp3"
     }
   ]
 }

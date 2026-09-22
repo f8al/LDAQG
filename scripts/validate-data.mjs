@@ -16,7 +16,10 @@ for (const [roundIndex, round] of (data.rounds || []).entries()) {
     }
   }
 }
-if (!data.final?.category || !data.final?.clue || !data.final?.answer) errors.push("final needs category, clue, and answer");
+const finals = Array.isArray(data.finalPool) && data.finalPool.length ? data.finalPool : [data.final];
+for (const [finalIndex, final] of finals.entries()) {
+  if (!final?.category || !final?.clue || !final?.answer) errors.push(`final ${finalIndex + 1} needs category, clue, and answer`);
+}
 
 if (errors.length) {
   console.error(`Question data has ${errors.length} error(s):\n- ${errors.join("\n- ")}`);
@@ -24,5 +27,5 @@ if (errors.length) {
 } else {
   const clueCount = data.rounds.reduce((total, round) => total + round.categories.reduce((sum, category) => sum + category.clues.length, 0), 0);
   const zeroDays = data.rounds.flatMap((round) => round.categories).flatMap((category) => category.clues).filter((clue) => clue.zeroDay).length;
-  console.log(`Valid: ${data.rounds.length} rounds, ${clueCount} clues, ${zeroDays} Zero Days, and one final.`);
+  console.log(`Valid: ${data.rounds.length} rounds, ${clueCount} clues, ${zeroDays} Zero Days, and ${finals.length} final question(s).`);
 }
