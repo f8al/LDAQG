@@ -8,51 +8,701 @@
         {
           "name": "Ports & Protocols",
           "clues": [
-            { "value": 100, "clue": "This encrypted remote-login protocol usually listens on TCP port 22.", "answer": "What is SSH?" },
-            { "value": 200, "clue": "Despite its name, this port 53 protocol handles far more than translating names into addresses.", "answer": "What is DNS?" },
-            { "value": 300, "clue": "Web traffic gets its padlock when this protocol wraps HTTP in TLS, normally on port 443.", "answer": "What is HTTPS?", "lifeline": "Ask one audience member to name the protocol.", "flag": "flag{tls_before_trust}" },
-            { "value": 400, "clue": "This UDP-based protocol automatically assigns IP configuration to clients, using ports 67 and 68.", "answer": "What is DHCP?" },
-            { "value": 500, "clue": "This network-management protocol traditionally uses UDP 161 for queries and 162 for traps.", "answer": "What is SNMP?" }
+            {
+              "value": 100,
+              "clue": "This encrypted remote-login protocol usually listens on TCP port 22.",
+              "answer": "What is SSH?"
+            },
+            {
+              "value": 200,
+              "clue": "Despite its name, this port 53 protocol handles far more than translating names into addresses.",
+              "answer": "What is DNS?"
+            },
+            {
+              "value": 300,
+              "clue": "Web traffic gets its padlock when this protocol wraps HTTP in TLS, normally on port 443.",
+              "answer": "What is HTTPS?",
+              "lifeline": "Ask one audience member to name the protocol.",
+              "flag": "flag{tls_before_trust}"
+            },
+            {
+              "value": 400,
+              "clue": "This UDP-based protocol automatically assigns IP configuration to clients, using ports 67 and 68.",
+              "answer": "What is DHCP?"
+            },
+            {
+              "value": 500,
+              "clue": "This network-management protocol traditionally uses UDP 161 for queries and 162 for traps.",
+              "answer": "What is SNMP?"
+            }
           ]
         },
         {
           "name": "Malware or Metal Band",
           "clues": [
-            { "value": 100, "clue": "Black Sabbath: malware or metal band?", "answer": "What is a metal band?" },
-            { "value": 200, "clue": "Emotet: malware or metal band?", "answer": "What is malware?" },
-            { "value": 300, "clue": "Dark Tranquillity: malware or metal band?", "answer": "What is a metal band?" },
-            { "value": 400, "clue": "TrickBot: malware or metal band?", "answer": "What is malware?" },
-            { "value": 500, "clue": "Carbanak: malware or metal band?", "answer": "What is malware?" }
+            {
+              "value": 100,
+              "clue": "Black Sabbath: malware or metal band?",
+              "answer": "What is a metal band?"
+            },
+            {
+              "value": 200,
+              "clue": "Emotet: malware or metal band?",
+              "answer": "What is malware?"
+            },
+            {
+              "value": 300,
+              "clue": "Dark Tranquillity: malware or metal band?",
+              "answer": "What is a metal band?"
+            },
+            {
+              "value": 400,
+              "clue": "TrickBot: malware or metal band?",
+              "answer": "What is malware?"
+            },
+            {
+              "value": 500,
+              "clue": "Carbanak: malware or metal band?",
+              "answer": "What is malware?"
+            }
           ]
         },
         {
           "name": "Default Credentials",
           "clues": [
-            { "value": 100, "clue": "This six-letter account name is the first half of far too many default logins.", "answer": "What is admin?" },
-            { "value": 200, "clue": "Mirai famously grew its botnet by scanning IoT devices for these unchanged factory secrets.", "answer": "What are default passwords?" },
-            { "value": 300, "clue": "This database superuser often ships with no password in badly configured local installations.", "answer": "What is root?", "zeroDay": true },
-            { "value": 400, "clue": "This practice replaces a vendor-supplied password before a device touches production.", "answer": "What is credential hardening (or changing the default password)?" },
-            { "value": 500, "clue": "A password unique to each manufactured unit helps eliminate this shared-secret failure mode.", "answer": "What are per-device credentials?" }
+            {
+              "value": 100,
+              "clue": "This six-letter account name is the first half of far too many default logins.",
+              "answer": "What is admin?"
+            },
+            {
+              "value": 200,
+              "clue": "Mirai famously grew its botnet by scanning IoT devices for these unchanged factory secrets.",
+              "answer": "What are default passwords?"
+            },
+            {
+              "value": 300,
+              "clue": "This database superuser often ships with no password in badly configured local installations.",
+              "answer": "What is root?",
+              "zeroDay": true
+            },
+            {
+              "value": 400,
+              "clue": "This practice replaces a vendor-supplied password before a device touches production.",
+              "answer": "What is credential hardening (or changing the default password)?"
+            },
+            {
+              "value": 500,
+              "clue": "A password unique to each manufactured unit helps eliminate this shared-secret failure mode.",
+              "answer": "What are per-device credentials?"
+            }
           ]
         },
         {
           "name": "Regex or Cat Walked on Keyboard",
           "clues": [
-            { "value": 100, "clue": "^cat$: regex or cat walked on keyboard?", "answer": "What is regex?" },
-            { "value": 200, "clue": "jjjjjjjjjjjjjjjjj: regex or cat walked on keyboard?", "answer": "What is cat walked on keyboard?" },
-            { "value": 300, "clue": "(?=.{12,})(?=.*[A-Z]): regex or cat walked on keyboard?", "answer": "What is regex?" },
-            { "value": 400, "clue": "[A-Fa-f0-9]{64}: regex or cat walked on keyboard?", "answer": "What is regex?" },
-            { "value": 500, "clue": "qazwsxedcrfvtgbyhn: regex or cat walked on keyboard?", "answer": "What is cat walked on keyboard?" }
+            {
+              "value": 100,
+              "clue": "^cat$: regex or cat walked on keyboard?",
+              "answer": "What is regex?"
+            },
+            {
+              "value": 200,
+              "clue": "jjjjjjjjjjjjjjjjj: regex or cat walked on keyboard?",
+              "answer": "What is cat walked on keyboard?"
+            },
+            {
+              "value": 300,
+              "clue": "(?=.{12,})(?=.*[A-Z]): regex or cat walked on keyboard?",
+              "answer": "What is regex?"
+            },
+            {
+              "value": 400,
+              "clue": "[A-Fa-f0-9]{64}: regex or cat walked on keyboard?",
+              "answer": "What is regex?"
+            },
+            {
+              "value": 500,
+              "clue": "qazwsxedcrfvtgbyhn: regex or cat walked on keyboard?",
+              "answer": "What is cat walked on keyboard?"
+            }
           ]
         },
         {
           "name": "Threat Actor Names",
           "clues": [
-            { "value": 100, "clue": "Cozy Bear and Fancy Bear are commonly linked to intelligence services in this country.", "answer": "What is Russia?" },
-            { "value": 200, "clue": "Lazarus Group is widely attributed to this country.", "answer": "What is North Korea?" },
-            { "value": 300, "clue": "Vendor names like APT28, Fancy Bear, and Forest Blizzard can all refer to this same activity cluster.", "answer": "What is threat-actor aliasing?" },
-            { "value": 400, "clue": "Microsoft historically uses this weather event for groups it attributes to Iran.", "answer": "What is a sandstorm?" },
-            { "value": 500, "clue": "CrowdStrike's naming scheme pairs a nationality-themed adjective with this animal class.", "answer": "What is an animal (such as Bear, Panda, Kitten, or Spider)?" }
+            {
+              "value": 100,
+              "clue": "Cozy Bear and Fancy Bear are commonly linked to intelligence services in this country.",
+              "answer": "What is Russia?"
+            },
+            {
+              "value": 200,
+              "clue": "Lazarus Group is widely attributed to this country.",
+              "answer": "What is North Korea?"
+            },
+            {
+              "value": 300,
+              "clue": "Vendor names like APT28, Fancy Bear, and Forest Blizzard can all refer to this same activity cluster.",
+              "answer": "What is threat-actor aliasing?"
+            },
+            {
+              "value": 400,
+              "clue": "Microsoft historically uses this weather event for groups it attributes to Iran.",
+              "answer": "What is a sandstorm?"
+            },
+            {
+              "value": 500,
+              "clue": "CrowdStrike's naming scheme pairs a nationality-themed adjective with this animal class.",
+              "answer": "What is an animal (such as Bear, Panda, Kitten, or Spider)?"
+            }
+          ]
+        },
+        {
+          "name": "Acronym Soup",
+          "clues": [
+            {
+              "value": 100,
+              "clue": "This platform aggregates and correlates log data so analysts have something to ignore at 3 a.m.",
+              "answer": "What is a SIEM (Security Information and Event Management)?"
+            },
+            {
+              "value": 200,
+              "clue": "EDR expands to this endpoint capability.",
+              "answer": "What is Endpoint Detection and Response?"
+            },
+            {
+              "value": 300,
+              "clue": "This triple A covers proving who you are, what you may do, and what you did.",
+              "answer": "What is AAA (authentication, authorization, accounting)?"
+            },
+            {
+              "value": 400,
+              "clue": "This open standard underpins passkeys and hardware security keys.",
+              "answer": "What is FIDO2?",
+              "zeroDay": true
+            },
+            {
+              "value": 500,
+              "clue": "SOAR promises to do these two things to repetitive analyst work.",
+              "answer": "What are orchestration and automation?"
+            }
+          ]
+        },
+        {
+          "name": "Vendor or Pokemon",
+          "clues": [
+            {
+              "value": 100,
+              "clue": "Snorlax: vendor or Pokemon?",
+              "answer": "What is a Pokemon?"
+            },
+            {
+              "value": 200,
+              "clue": "Netskope: vendor or Pokemon?",
+              "answer": "What is a vendor?"
+            },
+            {
+              "value": 300,
+              "clue": "Exabeam: vendor or Pokemon?",
+              "answer": "What is a vendor?"
+            },
+            {
+              "value": 400,
+              "clue": "Magikarp: vendor or Pokemon?",
+              "answer": "What is a Pokemon?",
+              "lifeline": "Poll the room, majority wins.",
+              "flag": "flag{gotta_patch_em_all}"
+            },
+            {
+              "value": 500,
+              "clue": "Vectra: vendor or Pokemon?",
+              "answer": "What is a vendor?"
+            }
+          ]
+        },
+        {
+          "name": "Hacker Movie Nonsense",
+          "clues": [
+            {
+              "value": 100,
+              "clue": "This 1995 film gave us rollerblading teens, a garbage file, and terrible 3D interfaces.",
+              "answer": "What is Hackers?"
+            },
+            {
+              "value": 200,
+              "clue": "A teenager nearly starts a nuclear war by wardialing in this 1983 film.",
+              "answer": "What is WarGames?"
+            },
+            {
+              "value": 300,
+              "clue": "The Jurassic Park line about knowing this Unix system referred to a real SGI file browser called fsn.",
+              "answer": "What is a Unix system?"
+            },
+            {
+              "value": 400,
+              "clue": "Mr. Robot earned credibility by showing this real wireless cracking suite instead of spinning cubes.",
+              "answer": "What is Aircrack-ng?"
+            },
+            {
+              "value": 500,
+              "clue": "On screen, encryption is always defeated the moment this UI element fills up.",
+              "answer": "What is a progress bar?"
+            }
+          ]
+        },
+        {
+          "name": "Nmap Says What",
+          "clues": [
+            {
+              "value": 100,
+              "clue": "This aggressive nmap flag bundles OS detection, version detection, scripts, and traceroute.",
+              "answer": "What is -A?"
+            },
+            {
+              "value": 200,
+              "clue": "A port in this state gave no response at all, so nmap cannot tell open from blocked.",
+              "answer": "What is filtered?"
+            },
+            {
+              "value": 300,
+              "clue": "This scan sends SYN packets and never finishes the handshake.",
+              "answer": "What is a SYN scan (-sS)?"
+            },
+            {
+              "value": 400,
+              "clue": "Use this flag when the target blocks ping and you want to scan anyway.",
+              "answer": "What is -Pn?",
+              "zeroDay": true
+            },
+            {
+              "value": 500,
+              "clue": "This nmap output format is the one you actually want when a script has to read the results later.",
+              "answer": "What is XML output (-oX)?"
+            }
+          ]
+        },
+        {
+          "name": "Password Hall of Shame",
+          "clues": [
+            {
+              "value": 100,
+              "clue": "Year after year this numeric string tops the worst password lists.",
+              "answer": "What is 123456?"
+            },
+            {
+              "value": 200,
+              "clue": "Tell a user to add a capital letter and a number and you get this eight character classic.",
+              "answer": "What is Password1?"
+            },
+            {
+              "value": 300,
+              "clue": "Reusing one password everywhere enables this attack using breached credential lists.",
+              "answer": "What is credential stuffing?"
+            },
+            {
+              "value": 400,
+              "clue": "These functions slow hashing on purpose so cracking stays expensive.",
+              "answer": "What are key derivation functions (bcrypt, scrypt, or Argon2)?"
+            },
+            {
+              "value": 500,
+              "clue": "Adding this unique random value per user stops one rainbow table from ruining everyone's day.",
+              "answer": "What is a salt?"
+            }
+          ]
+        },
+        {
+          "name": "Linux Commands That Bite",
+          "clues": [
+            {
+              "value": 100,
+              "clue": "This command plus -rf and one stray space has ended careers.",
+              "answer": "What is rm?"
+            },
+            {
+              "value": 200,
+              "clue": "This modern command lists listening sockets and has largely replaced netstat.",
+              "answer": "What is ss?"
+            },
+            {
+              "value": 300,
+              "clue": "This command changes file permissions and makes auditors nervous when it is followed by 777.",
+              "answer": "What is chmod?"
+            },
+            {
+              "value": 400,
+              "clue": "This search utility shows up on every privilege escalation checklist because of its exec option.",
+              "answer": "What is find?"
+            },
+            {
+              "value": 500,
+              "clue": "This directory holds scheduled jobs that attackers love to backdoor.",
+              "answer": "What is /etc/cron.d?"
+            }
+          ]
+        },
+        {
+          "name": "HTTP Status Feelings",
+          "clues": [
+            {
+              "value": 100,
+              "clue": "Status 404 means the resource is doing this.",
+              "answer": "What is not found?"
+            },
+            {
+              "value": 200,
+              "clue": "A 403 means the server understood you perfectly and chose this.",
+              "answer": "What is forbidden?"
+            },
+            {
+              "value": 300,
+              "clue": "This 4xx code is reserved for a teapot that refuses to brew coffee.",
+              "answer": "What is 418?"
+            },
+            {
+              "value": 400,
+              "clue": "Between 401 and 403, this one means you have not proven who you are yet.",
+              "answer": "What is 401?"
+            },
+            {
+              "value": 500,
+              "clue": "A sudden wall of 429 responses means your scanner hit this.",
+              "answer": "What is rate limiting?"
+            }
+          ]
+        },
+        {
+          "name": "Phishing Tells",
+          "clues": [
+            {
+              "value": 100,
+              "clue": "Urgency plus a spoofed message from this executive is the classic business email compromise setup.",
+              "answer": "What is the CEO?"
+            },
+            {
+              "value": 200,
+              "clue": "Hovering over the link exposes this basic mismatch.",
+              "answer": "What is the display text not matching the real URL?"
+            },
+            {
+              "value": 300,
+              "clue": "This lookalike domain trick swaps in characters from another alphabet.",
+              "answer": "What is an IDN homograph attack?"
+            },
+            {
+              "value": 400,
+              "clue": "These three email authentication mechanisms help prove a sender is legitimate.",
+              "answer": "What are SPF, DKIM, and DMARC?"
+            },
+            {
+              "value": 500,
+              "clue": "Phishing delivered over text message earns this portmanteau.",
+              "answer": "What is smishing?",
+              "lifeline": "One audience hint, ten seconds.",
+              "flag": "flag{do_not_click_that}"
+            }
+          ]
+        },
+        {
+          "name": "Con Culture",
+          "clues": [
+            {
+              "value": 100,
+              "clue": "This Las Vegas conference is known for badge hacking, villages, and questionable hotel WiFi.",
+              "answer": "What is DEF CON?"
+            },
+            {
+              "value": 200,
+              "clue": "Getting your cleartext credentials displayed publicly at DEF CON means you made this list.",
+              "answer": "What is the Wall of Sheep?"
+            },
+            {
+              "value": 300,
+              "clue": "This DEF CON village puts real election equipment in front of hackers.",
+              "answer": "What is the Voting Village?"
+            },
+            {
+              "value": 400,
+              "clue": "This long running DEF CON contest rewards identifying federal agents in the crowd.",
+              "answer": "What is Spot the Fed?"
+            },
+            {
+              "value": 500,
+              "clue": "This sibling conference runs just before DEF CON for the people with expense reports.",
+              "answer": "What is Black Hat?"
+            }
+          ]
+        },
+        {
+          "name": "Wireless Words",
+          "clues": [
+            {
+              "value": 100,
+              "clue": "This wireless security standard succeeded WPA2 and introduced SAE.",
+              "answer": "What is WPA3?"
+            },
+            {
+              "value": 200,
+              "clue": "Capturing this exchange was the standard first step in cracking WPA2.",
+              "answer": "What is the four way handshake?"
+            },
+            {
+              "value": 300,
+              "clue": "A rogue access point broadcasting a legitimate network name is called this.",
+              "answer": "What is an evil twin?",
+              "zeroDay": true
+            },
+            {
+              "value": 400,
+              "clue": "This 2017 attack abused key reinstallation against WPA2.",
+              "answer": "What is KRACK?"
+            },
+            {
+              "value": 500,
+              "clue": "Capturing this value from a single frame removed the need to wait for a client to connect.",
+              "answer": "What is the PMKID?"
+            }
+          ]
+        },
+        {
+          "name": "Blue Team Basics",
+          "clues": [
+            {
+              "value": 100,
+              "clue": "This document tells responders who to call and in what order.",
+              "answer": "What is an incident response plan?"
+            },
+            {
+              "value": 200,
+              "clue": "Capture this volatile evidence before anyone reaches for the power button.",
+              "answer": "What is memory (RAM)?"
+            },
+            {
+              "value": 300,
+              "clue": "This free Windows tool logs process creation with command lines as Event ID 1.",
+              "answer": "What is Sysmon?"
+            },
+            {
+              "value": 400,
+              "clue": "This proactive practice looks for intruders without waiting for an alert.",
+              "answer": "What is threat hunting?"
+            },
+            {
+              "value": 500,
+              "clue": "This metric measures how long an intruder lived in your network before detection.",
+              "answer": "What is dwell time?"
+            }
+          ]
+        },
+        {
+          "name": "Certification Alphabet",
+          "clues": [
+            {
+              "value": 100,
+              "clue": "This entry level CompTIA certification is the HR filter for most junior roles.",
+              "answer": "What is Security+?"
+            },
+            {
+              "value": 200,
+              "clue": "This hands on exam ends with candidates muttering the phrase Try Harder.",
+              "answer": "What is the OSCP?"
+            },
+            {
+              "value": 300,
+              "clue": "This management heavy certification demands five years of experience and a tolerance for acronyms.",
+              "answer": "What is the CISSP?"
+            },
+            {
+              "value": 400,
+              "clue": "This organization issues the GCIH, GPEN, and GREM.",
+              "answer": "What is GIAC?"
+            },
+            {
+              "value": 500,
+              "clue": "Stacking eleven suffixes after your name on LinkedIn earns this affectionate insult.",
+              "answer": "What is alphabet soup (cert collecting)?"
+            }
+          ]
+        },
+        {
+          "name": "Tool or Energy Drink",
+          "clues": [
+            {
+              "value": 100,
+              "clue": "Ghidra: tool or energy drink?",
+              "answer": "What is a tool?"
+            },
+            {
+              "value": 200,
+              "clue": "Bang: tool or energy drink?",
+              "answer": "What is an energy drink?"
+            },
+            {
+              "value": 300,
+              "clue": "Havoc: tool or energy drink?",
+              "answer": "What is a tool (a C2 framework)?"
+            },
+            {
+              "value": 400,
+              "clue": "Celsius: tool or energy drink?",
+              "answer": "What is an energy drink?"
+            },
+            {
+              "value": 500,
+              "clue": "Mimikatz: tool or energy drink?",
+              "answer": "What is a tool?"
+            }
+          ]
+        },
+        {
+          "name": "Incident Response Stages",
+          "clues": [
+            {
+              "value": 100,
+              "clue": "This phase happens long before the incident, when the plan and the tooling get built.",
+              "answer": "What is preparation?"
+            },
+            {
+              "value": 200,
+              "clue": "Yanking the network cable is a blunt instrument version of this phase.",
+              "answer": "What is containment?"
+            },
+            {
+              "value": 300,
+              "clue": "Removing the attacker's tooling and persistence belongs to this phase.",
+              "answer": "What is eradication?"
+            },
+            {
+              "value": 400,
+              "clue": "Restoring service and verifying it stays clean is this phase.",
+              "answer": "What is recovery?"
+            },
+            {
+              "value": 500,
+              "clue": "This final phase gets skipped because the next incident already started.",
+              "answer": "What are lessons learned?"
+            }
+          ]
+        },
+        {
+          "name": "Web App Top Hits",
+          "clues": [
+            {
+              "value": 100,
+              "clue": "This flaw lets user input become part of a database query.",
+              "answer": "What is SQL injection?"
+            },
+            {
+              "value": 200,
+              "clue": "This flaw runs attacker controlled script in another user's browser.",
+              "answer": "What is cross site scripting?"
+            },
+            {
+              "value": 300,
+              "clue": "This flaw makes the server fetch a URL of the attacker's choosing.",
+              "answer": "What is server side request forgery?"
+            },
+            {
+              "value": 400,
+              "clue": "Incrementing a record ID in the URL to read someone else's data is this.",
+              "answer": "What is IDOR?"
+            },
+            {
+              "value": 500,
+              "clue": "This periodically updated list ranks the most critical web application risks.",
+              "answer": "What is the OWASP Top 10?"
+            }
+          ]
+        },
+        {
+          "name": "Named Vulns With Logos",
+          "clues": [
+            {
+              "value": 100,
+              "clue": "This 2014 OpenSSL bug leaked server memory 64 kilobytes at a time.",
+              "answer": "What is Heartbleed?"
+            },
+            {
+              "value": 200,
+              "clue": "This 2014 bash flaw let environment variables smuggle commands.",
+              "answer": "What is Shellshock?"
+            },
+            {
+              "value": 300,
+              "clue": "This SMBv1 exploit powered WannaCry and NotPetya.",
+              "answer": "What is EternalBlue?"
+            },
+            {
+              "value": 400,
+              "clue": "This 2021 logging library flaw turned a single log line into remote code execution.",
+              "answer": "What is Log4Shell?"
+            },
+            {
+              "value": 500,
+              "clue": "This 2020 Netlogon flaw let an attacker set a domain controller password to nothing.",
+              "answer": "What is Zerologon?"
+            }
+          ]
+        },
+        {
+          "name": "Obscure Ports",
+          "clues": [
+            {
+              "value": 100,
+              "clue": "Port 3389 gets you this remote desktop service.",
+              "answer": "What is RDP?"
+            },
+            {
+              "value": 200,
+              "clue": "Port 445 carries this file sharing protocol.",
+              "answer": "What is SMB?"
+            },
+            {
+              "value": 300,
+              "clue": "Port 1433 belongs to this database platform.",
+              "answer": "What is Microsoft SQL Server?"
+            },
+            {
+              "value": 400,
+              "clue": "Ports 5985 and 5986 carry this Windows remote management service.",
+              "answer": "What is WinRM?"
+            },
+            {
+              "value": 500,
+              "clue": "UDP port 623 exposes this out of band management protocol that authenticates terribly.",
+              "answer": "What is IPMI?"
+            }
+          ]
+        },
+        {
+          "name": "Deprecated and Dangerous",
+          "clues": [
+            {
+              "value": 100,
+              "clue": "This protocol sends credentials in the clear and should have died decades ago.",
+              "answer": "What is Telnet?"
+            },
+            {
+              "value": 200,
+              "clue": "This ancient Windows hash format falls to cracking almost instantly.",
+              "answer": "What is the LM hash?"
+            },
+            {
+              "value": 300,
+              "clue": "This file sharing protocol version should be disabled everywhere and is still running somewhere near you.",
+              "answer": "What is SMBv1?"
+            },
+            {
+              "value": 400,
+              "clue": "This TLS version was formally deprecated in 2021 alongside 1.1.",
+              "answer": "What is TLS 1.0?"
+            },
+            {
+              "value": 500,
+              "clue": "This browser plugin technology finally reached end of life at the end of 2020.",
+              "answer": "What is Adobe Flash Player?"
+            }
           ]
         }
       ]
@@ -64,51 +714,708 @@
         {
           "name": "CVE or Area Code",
           "clues": [
-            { "value": 200, "clue": "312: CVE or area code?", "answer": "What is an area code (Chicago)?" },
-            { "value": 400, "clue": "CVE-2021-44228: CVE or area code?", "answer": "What is a CVE (Log4Shell)?" },
-            { "value": 600, "clue": "404: CVE or area code?", "answer": "What is an area code (Atlanta)?" },
-            { "value": 800, "clue": "CVE-2014-0160: CVE or area code?", "answer": "What is a CVE (Heartbleed)?" },
-            { "value": 1000, "clue": "867: CVE or area code?", "answer": "What is an area code (northern Canada)?" }
+            {
+              "value": 200,
+              "clue": "312: CVE or area code?",
+              "answer": "What is an area code (Chicago)?"
+            },
+            {
+              "value": 400,
+              "clue": "CVE-2021-44228: CVE or area code?",
+              "answer": "What is a CVE (Log4Shell)?"
+            },
+            {
+              "value": 600,
+              "clue": "404: CVE or area code?",
+              "answer": "What is an area code (Atlanta)?"
+            },
+            {
+              "value": 800,
+              "clue": "CVE-2014-0160: CVE or area code?",
+              "answer": "What is a CVE (Heartbleed)?"
+            },
+            {
+              "value": 1000,
+              "clue": "867: CVE or area code?",
+              "answer": "What is an area code (northern Canada)?"
+            }
           ]
         },
         {
           "name": "RFC or Fever Dream",
           "clues": [
-            { "value": 200, "clue": "A standard for sending IP datagrams by avian carriers: RFC or fever dream?", "answer": "What is an RFC (RFC 1149)?" },
-            { "value": 400, "clue": "A Hyper Text Coffee Pot Control Protocol: RFC or fever dream?", "answer": "What is an RFC (RFC 2324)?" },
-            { "value": 600, "clue": "The Evil Bit, set by attackers to simplify firewall policy: RFC or fever dream?", "answer": "What is an RFC (RFC 3514)?" },
-            { "value": 800, "clue": "DNS over interpretive dance: RFC or fever dream?", "answer": "What is a fever dream?" },
-            { "value": 1000, "clue": "TCP option to negotiate who must bring snacks: RFC or fever dream?", "answer": "What is a fever dream?" }
+            {
+              "value": 200,
+              "clue": "A standard for sending IP datagrams by avian carriers: RFC or fever dream?",
+              "answer": "What is an RFC (RFC 1149)?"
+            },
+            {
+              "value": 400,
+              "clue": "A Hyper Text Coffee Pot Control Protocol: RFC or fever dream?",
+              "answer": "What is an RFC (RFC 2324)?"
+            },
+            {
+              "value": 600,
+              "clue": "The Evil Bit, set by attackers to simplify firewall policy: RFC or fever dream?",
+              "answer": "What is an RFC (RFC 3514)?"
+            },
+            {
+              "value": 800,
+              "clue": "DNS over interpretive dance: RFC or fever dream?",
+              "answer": "What is a fever dream?"
+            },
+            {
+              "value": 1000,
+              "clue": "TCP option to negotiate who must bring snacks: RFC or fever dream?",
+              "answer": "What is a fever dream?"
+            }
           ]
         },
         {
           "name": "Compliance Theater",
           "clues": [
-            { "value": 200, "clue": "This annual exercise proves everyone can click through 47 slides while checking email.", "answer": "What is security awareness training?" },
-            { "value": 400, "clue": "A policy last reviewed in 2017 still says 'current' because this changed on the cover page.", "answer": "What is the date?" },
-            { "value": 600, "clue": "This checkbox artifact says a control exists; evidence says whether it works.", "answer": "What is an attestation (or self-assessment)?", "zeroDay": true },
-            { "value": 800, "clue": "Buying this shiny appliance without staffing it is a classic way to pass an audit and miss an incident.", "answer": "What is a security tool (accept SIEM, EDR, or similar with justification)?" },
-            { "value": 1000, "clue": "This phrase describes meeting the letter of a requirement without reducing the actual risk.", "answer": "What is compliance theater?" }
+            {
+              "value": 200,
+              "clue": "This annual exercise proves everyone can click through 47 slides while checking email.",
+              "answer": "What is security awareness training?"
+            },
+            {
+              "value": 400,
+              "clue": "A policy last reviewed in 2017 still says 'current' because this changed on the cover page.",
+              "answer": "What is the date?"
+            },
+            {
+              "value": 600,
+              "clue": "This checkbox artifact says a control exists; evidence says whether it works.",
+              "answer": "What is an attestation (or self-assessment)?",
+              "zeroDay": true
+            },
+            {
+              "value": 800,
+              "clue": "Buying this shiny appliance without staffing it is a classic way to pass an audit and miss an incident.",
+              "answer": "What is a security tool (accept SIEM, EDR, or similar with justification)?"
+            },
+            {
+              "value": 1000,
+              "clue": "This phrase describes meeting the letter of a requirement without reducing the actual risk.",
+              "answer": "What is compliance theater?"
+            }
           ]
         },
         {
           "name": "Breaches You Read About",
           "clues": [
-            { "value": 200, "clue": "In 2013, this retailer's breach began with credentials stolen from an HVAC vendor.", "answer": "What is Target?" },
-            { "value": 400, "clue": "A 2017 breach at this credit bureau exposed data on roughly 147 million people.", "answer": "What is Equifax?" },
-            { "value": 600, "clue": "A compromised build process turned this company's Orion updates into a supply-chain vector.", "answer": "What is SolarWinds?" },
-            { "value": 800, "clue": "This pipeline operator shut down fuel delivery in 2021 after a ransomware attack.", "answer": "What is Colonial Pipeline?" },
-            { "value": 1000, "clue": "In 2023, mass exploitation of this Progress file-transfer product drove breaches worldwide.", "answer": "What is MOVEit Transfer?" }
+            {
+              "value": 200,
+              "clue": "In 2013, this retailer's breach began with credentials stolen from an HVAC vendor.",
+              "answer": "What is Target?"
+            },
+            {
+              "value": 400,
+              "clue": "A 2017 breach at this credit bureau exposed data on roughly 147 million people.",
+              "answer": "What is Equifax?"
+            },
+            {
+              "value": 600,
+              "clue": "A compromised build process turned this company's Orion updates into a supply-chain vector.",
+              "answer": "What is SolarWinds?"
+            },
+            {
+              "value": 800,
+              "clue": "This pipeline operator shut down fuel delivery in 2021 after a ransomware attack.",
+              "answer": "What is Colonial Pipeline?"
+            },
+            {
+              "value": 1000,
+              "clue": "In 2023, mass exploitation of this Progress file-transfer product drove breaches worldwide.",
+              "answer": "What is MOVEit Transfer?"
+            }
           ]
         },
         {
           "name": "Decode This",
           "clues": [
-            { "value": 200, "clue": "SGVsbG8=: decode this Base64 string.", "answer": "What is Hello?" },
-            { "value": 400, "clue": "0x41: decode this ASCII byte.", "answer": "What is A?" },
-            { "value": 600, "clue": "01100010 01110101 01100111: decode this binary ASCII.", "answer": "What is bug?" },
-            { "value": 800, "clue": "uryyb jbeyq: decode this ROT13 string.", "answer": "What is hello world?", "lifeline": "Let an audience member use any offline tool for 30 seconds.", "flag": "flag{friends_dont_let_friends_rot13}" },
-            { "value": 1000, "clue": "%66%6c%61%67: decode this URL-encoded text.", "answer": "What is flag?" }
+            {
+              "value": 200,
+              "clue": "SGVsbG8=: decode this Base64 string.",
+              "answer": "What is Hello?"
+            },
+            {
+              "value": 400,
+              "clue": "0x41: decode this ASCII byte.",
+              "answer": "What is A?"
+            },
+            {
+              "value": 600,
+              "clue": "01100010 01110101 01100111: decode this binary ASCII.",
+              "answer": "What is bug?"
+            },
+            {
+              "value": 800,
+              "clue": "uryyb jbeyq: decode this ROT13 string.",
+              "answer": "What is hello world?",
+              "lifeline": "Let an audience member use any offline tool for 30 seconds.",
+              "flag": "flag{friends_dont_let_friends_rot13}"
+            },
+            {
+              "value": 1000,
+              "clue": "%66%6c%61%67: decode this URL-encoded text.",
+              "answer": "What is flag?"
+            }
+          ]
+        },
+        {
+          "name": "Living Off the Land",
+          "clues": [
+            {
+              "value": 200,
+              "clue": "This Windows certificate utility is abused constantly to download payloads.",
+              "answer": "What is certutil?"
+            },
+            {
+              "value": 400,
+              "clue": "This site catalogs Unix binaries that break out of restricted shells and escalate privileges.",
+              "answer": "What is GTFOBins?"
+            },
+            {
+              "value": 600,
+              "clue": "This Windows scripting host happily executes .vbs and .js payloads.",
+              "answer": "What is wscript (or cscript)?"
+            },
+            {
+              "value": 800,
+              "clue": "Attackers use this signed Microsoft binary to proxy execution of arbitrary DLLs.",
+              "answer": "What is rundll32?",
+              "zeroDay": true
+            },
+            {
+              "value": 1000,
+              "clue": "This project is the Windows counterpart to GTFOBins.",
+              "answer": "What is LOLBAS?"
+            }
+          ]
+        },
+        {
+          "name": "ATT&CK Tactics",
+          "clues": [
+            {
+              "value": 200,
+              "clue": "This ATT&CK tactic covers getting the first foothold.",
+              "answer": "What is Initial Access?"
+            },
+            {
+              "value": 400,
+              "clue": "Dumping LSASS falls squarely under this tactic.",
+              "answer": "What is Credential Access?"
+            },
+            {
+              "value": 600,
+              "clue": "Clearing event logs and disabling tooling belongs to this tactic.",
+              "answer": "What is Defense Evasion?"
+            },
+            {
+              "value": 800,
+              "clue": "Run keys and scheduled tasks both serve this tactic.",
+              "answer": "What is Persistence?"
+            },
+            {
+              "value": 1000,
+              "clue": "In ATT&CK, an identifier starting with T and four digits refers to this.",
+              "answer": "What is a technique?"
+            }
+          ]
+        },
+        {
+          "name": "Crypto the Math Kind",
+          "clues": [
+            {
+              "value": 200,
+              "clue": "This 128 bit hash is broken, deprecated, and still printed on download pages everywhere.",
+              "answer": "What is MD5?"
+            },
+            {
+              "value": 400,
+              "clue": "AES in this mode leaks structure badly enough to reveal a penguin.",
+              "answer": "What is ECB?"
+            },
+            {
+              "value": 600,
+              "clue": "This key exchange lets two parties agree on a shared secret over a public channel.",
+              "answer": "What is Diffie-Hellman?"
+            },
+            {
+              "value": 800,
+              "clue": "A sufficiently large quantum computer running this algorithm is why post quantum crypto exists.",
+              "answer": "What is Shor's algorithm?"
+            },
+            {
+              "value": 1000,
+              "clue": "NIST standardized this lattice based key encapsulation mechanism, formerly known as Kyber.",
+              "answer": "What is ML-KEM?",
+              "zeroDay": true
+            }
+          ]
+        },
+        {
+          "name": "Active Directory Pain",
+          "clues": [
+            {
+              "value": 200,
+              "clue": "This ticket based protocol carries most Active Directory authentication.",
+              "answer": "What is Kerberos?"
+            },
+            {
+              "value": 400,
+              "clue": "Requesting service tickets so you can crack them offline is called this.",
+              "answer": "What is Kerberoasting?"
+            },
+            {
+              "value": 600,
+              "clue": "Accounts with Kerberos pre authentication disabled are vulnerable to this.",
+              "answer": "What is AS-REP roasting?"
+            },
+            {
+              "value": 800,
+              "clue": "Forging a ticket granting ticket with the krbtgt hash produces this.",
+              "answer": "What is a Golden Ticket?"
+            },
+            {
+              "value": 1000,
+              "clue": "This tool turned domain privilege escalation into a graph query and made everyone sad.",
+              "answer": "What is BloodHound?",
+              "lifeline": "Audience may name any AD attack tool for a hint.",
+              "flag": "flag{six_degrees_of_domain_admin}"
+            }
+          ]
+        },
+        {
+          "name": "Cloud Misconfigurations",
+          "clues": [
+            {
+              "value": 200,
+              "clue": "This AWS storage service is famous for buckets that were public by accident.",
+              "answer": "What is S3?"
+            },
+            {
+              "value": 400,
+              "clue": "This link local address hosts the instance metadata service that SSRF loves.",
+              "answer": "What is 169.254.169.254?"
+            },
+            {
+              "value": 600,
+              "clue": "Setting both Action and Resource to an asterisk creates this kind of IAM policy.",
+              "answer": "What is a wildcard policy?",
+              "zeroDay": true
+            },
+            {
+              "value": 800,
+              "clue": "Opening a security group to this CIDR exposes the service to the entire internet.",
+              "answer": "What is 0.0.0.0/0?"
+            },
+            {
+              "value": 1000,
+              "clue": "This model explains why the provider secures the cloud and you secure what you put in it.",
+              "answer": "What is the shared responsibility model?"
+            }
+          ]
+        },
+        {
+          "name": "Ransomware Economics",
+          "clues": [
+            {
+              "value": 200,
+              "clue": "This payment method is the standard demand in a ransom note.",
+              "answer": "What is cryptocurrency?"
+            },
+            {
+              "value": 400,
+              "clue": "Stealing the data before encrypting it gives the crew this added leverage.",
+              "answer": "What is double extortion?"
+            },
+            {
+              "value": 600,
+              "clue": "This business model rents malware and infrastructure to affiliates for a cut of the proceeds.",
+              "answer": "What is Ransomware as a Service?"
+            },
+            {
+              "value": 800,
+              "clue": "Criminal crews publish victim names on these sites to pressure payment.",
+              "answer": "What are leak sites?"
+            },
+            {
+              "value": 1000,
+              "clue": "Even after paying, victims are left depending on this notoriously unreliable piece of attacker software.",
+              "answer": "What is the decryptor?"
+            }
+          ]
+        },
+        {
+          "name": "Downgrade Disasters",
+          "clues": [
+            {
+              "value": 200,
+              "clue": "This 2014 attack forced TLS clients back to SSL 3.0.",
+              "answer": "What is POODLE?"
+            },
+            {
+              "value": 400,
+              "clue": "Responder feasts on these two legacy Windows name resolution protocols.",
+              "answer": "What are LLMNR and NBT-NS?"
+            },
+            {
+              "value": 600,
+              "clue": "Quietly removing TLS from a connection in transit is called this.",
+              "answer": "What is SSL stripping?"
+            },
+            {
+              "value": 800,
+              "clue": "Leaving this SMB protection disabled is what makes relay attacks so easy.",
+              "answer": "What is SMB signing?",
+              "zeroDay": true
+            },
+            {
+              "value": 1000,
+              "clue": "This attack forced servers down to export grade RSA keys.",
+              "answer": "What is FREAK?"
+            }
+          ]
+        },
+        {
+          "name": "Log Lines and Lies",
+          "clues": [
+            {
+              "value": 200,
+              "clue": "This Windows event ID records a successful logon.",
+              "answer": "What is 4624?"
+            },
+            {
+              "value": 400,
+              "clue": "Event ID 4625 records this instead.",
+              "answer": "What is a failed logon?"
+            },
+            {
+              "value": 600,
+              "clue": "Event ID 1102 means somebody did this to the security log.",
+              "answer": "What is cleared it?"
+            },
+            {
+              "value": 800,
+              "clue": "This logon type value indicates an interactive console session.",
+              "answer": "What is type 2?"
+            },
+            {
+              "value": 1000,
+              "clue": "Attackers alter file times to defeat timeline analysis in this practice.",
+              "answer": "What is timestomping?"
+            }
+          ]
+        },
+        {
+          "name": "Hardware Hacking",
+          "clues": [
+            {
+              "value": 200,
+              "clue": "These four pads labeled TX, RX, GND, and VCC are the fastest way into an embedded device.",
+              "answer": "What is UART?"
+            },
+            {
+              "value": 400,
+              "clue": "This debug interface uses TDI, TDO, TMS, and TCK.",
+              "answer": "What is JTAG?"
+            },
+            {
+              "value": 600,
+              "clue": "This flash drive shaped device pretends to be a keyboard and types its payload.",
+              "answer": "What is a USB Rubber Ducky (or BadUSB)?"
+            },
+            {
+              "value": 800,
+              "clue": "Recovering a key by measuring power draw or timing is this class of attack.",
+              "answer": "What is a side channel attack?",
+              "zeroDay": true
+            },
+            {
+              "value": 1000,
+              "clue": "Dumping firmware from this eight pin chip usually starts with a SOIC clip.",
+              "answer": "What is a SPI flash chip?"
+            }
+          ]
+        },
+        {
+          "name": "ICS and OT Weirdness",
+          "clues": [
+            {
+              "value": 200,
+              "clue": "This 1979 industrial protocol still ships with no authentication whatsoever.",
+              "answer": "What is Modbus?"
+            },
+            {
+              "value": 400,
+              "clue": "TCP port 502 belongs to this protocol.",
+              "answer": "What is Modbus TCP?"
+            },
+            {
+              "value": 600,
+              "clue": "This worm targeted Siemens PLCs and destroyed centrifuges.",
+              "answer": "What is Stuxnet?"
+            },
+            {
+              "value": 800,
+              "clue": "This reference model layers industrial networks from enterprise down to the process floor.",
+              "answer": "What is the Purdue model?",
+              "lifeline": "Audience may name any ICS reference architecture.",
+              "flag": "flag{level_zero_is_scary}"
+            },
+            {
+              "value": 1000,
+              "clue": "This malware family spoke grid protocols natively during the 2016 Ukraine attack.",
+              "answer": "What is Industroyer (CrashOverride)?"
+            }
+          ]
+        },
+        {
+          "name": "Malware Persistence Tricks",
+          "clues": [
+            {
+              "value": 200,
+              "clue": "This registry location launches programs at user logon.",
+              "answer": "What is the Run key?"
+            },
+            {
+              "value": 400,
+              "clue": "This Windows feature executes code on a schedule under a friendly sounding name.",
+              "answer": "What is a scheduled task?"
+            },
+            {
+              "value": 600,
+              "clue": "Registering malicious code as one of these gets you SYSTEM at every boot.",
+              "answer": "What is a Windows service?"
+            },
+            {
+              "value": 800,
+              "clue": "Dropping a malicious library next to a trusted executable abuses this loading behavior.",
+              "answer": "What is DLL search order hijacking (sideloading)?"
+            },
+            {
+              "value": 1000,
+              "clue": "This class of implant lives in firmware and survives a full operating system reinstall.",
+              "answer": "What is a bootkit (UEFI implant)?",
+              "zeroDay": true
+            }
+          ]
+        },
+        {
+          "name": "Supply Chain Shenanigans",
+          "clues": [
+            {
+              "value": 200,
+              "clue": "This 2020 incident planted a backdoor inside signed Orion updates.",
+              "answer": "What is SolarWinds?"
+            },
+            {
+              "value": 400,
+              "clue": "Publishing a public package that shares an internal package name enables this attack.",
+              "answer": "What is dependency confusion?"
+            },
+            {
+              "value": 600,
+              "clue": "Registering a package one keystroke away from the real one is this.",
+              "answer": "What is typosquatting?"
+            },
+            {
+              "value": 800,
+              "clue": "This inventory document lists every component inside a piece of software.",
+              "answer": "What is an SBOM?"
+            },
+            {
+              "value": 1000,
+              "clue": "A performance complaint uncovered this 2024 backdoor in a compression library linked into SSH.",
+              "answer": "What is the xz utils backdoor?"
+            }
+          ]
+        },
+        {
+          "name": "Threat Intel Jargon",
+          "clues": [
+            {
+              "value": 200,
+              "clue": "IOC expands to this phrase.",
+              "answer": "What is indicator of compromise?"
+            },
+            {
+              "value": 400,
+              "clue": "This pyramid ranks indicators by how much it hurts the adversary when you burn them.",
+              "answer": "What is the Pyramid of Pain?"
+            },
+            {
+              "value": 600,
+              "clue": "This Traffic Light Protocol color restricts sharing to named recipients only.",
+              "answer": "What is TLP:RED?"
+            },
+            {
+              "value": 800,
+              "clue": "This structured format describes threat intel that TAXII then transports.",
+              "answer": "What is STIX?"
+            },
+            {
+              "value": 1000,
+              "clue": "TTP stands for this trio.",
+              "answer": "What are tactics, techniques, and procedures?"
+            }
+          ]
+        },
+        {
+          "name": "Red Team Tradecraft",
+          "clues": [
+            {
+              "value": 200,
+              "clue": "This document defines what is in scope, what is off limits, and who gets the call.",
+              "answer": "What are the rules of engagement?"
+            },
+            {
+              "value": 400,
+              "clue": "Carry this signed letter on physical engagements unless you enjoy meeting local law enforcement.",
+              "answer": "What is an authorization letter (get out of jail letter)?"
+            },
+            {
+              "value": 600,
+              "clue": "This server talks to your implants and should never be registered to your personal email.",
+              "answer": "What is a command and control server?"
+            },
+            {
+              "value": 800,
+              "clue": "Hiding C2 traffic behind a reputable CDN hostname is this now mostly dead technique.",
+              "answer": "What is domain fronting?"
+            },
+            {
+              "value": 1000,
+              "clue": "This configuration file reshapes Cobalt Strike's network indicators.",
+              "answer": "What is a malleable C2 profile?",
+              "zeroDay": true
+            }
+          ]
+        },
+        {
+          "name": "Purple Team Pain",
+          "clues": [
+            {
+              "value": 200,
+              "clue": "This open project provides small executable tests mapped to ATT&CK techniques.",
+              "answer": "What is Atomic Red Team?"
+            },
+            {
+              "value": 400,
+              "clue": "Running a known attack and confirming the alert fires is this exercise.",
+              "answer": "What is detection validation?"
+            },
+            {
+              "value": 600,
+              "clue": "An alert that fires on entirely benign activity is this.",
+              "answer": "What is a false positive?"
+            },
+            {
+              "value": 800,
+              "clue": "Storing detections in version control with tests and review is this practice.",
+              "answer": "What is detection as code?"
+            },
+            {
+              "value": 1000,
+              "clue": "This generic YAML signature format aims to be the YARA of log detection.",
+              "answer": "What is Sigma?",
+              "lifeline": "Audience may name any detection format.",
+              "flag": "flag{detect_then_brag}"
+            }
+          ]
+        },
+        {
+          "name": "Policy Words That Mean Nothing",
+          "clues": [
+            {
+              "value": 200,
+              "clue": "This adverb appears in policy right before a task nobody has ever scheduled.",
+              "answer": "What is regularly?"
+            },
+            {
+              "value": 400,
+              "clue": "Controls apply only to this vaguely defined subset of the environment that nobody has enumerated.",
+              "answer": "What are critical systems?"
+            },
+            {
+              "value": 600,
+              "clue": "Residual risk was formally accepted by this role, who left the company in 2019.",
+              "answer": "What is the risk owner?"
+            },
+            {
+              "value": 800,
+              "clue": "This two word phrase means we wrote it down and hope nobody asks for evidence.",
+              "answer": "What is a documented process?"
+            },
+            {
+              "value": 1000,
+              "clue": "This annual ritual produces a PDF nobody reads until an auditor asks for it.",
+              "answer": "What is the policy review?"
+            }
+          ]
+        },
+        {
+          "name": "AI Security",
+          "clues": [
+            {
+              "value": 200,
+              "clue": "Crafted input that makes a model ignore its instructions is this.",
+              "answer": "What is prompt injection?"
+            },
+            {
+              "value": 400,
+              "clue": "Planting malicious instructions in content the model retrieves later is this variant.",
+              "answer": "What is indirect prompt injection?"
+            },
+            {
+              "value": 600,
+              "clue": "Coaxing a deployed assistant into revealing its hidden instructions is this.",
+              "answer": "What is system prompt extraction?",
+              "zeroDay": true
+            },
+            {
+              "value": 800,
+              "clue": "Tainting the training corpus itself is this attack.",
+              "answer": "What is data poisoning?"
+            },
+            {
+              "value": 1000,
+              "clue": "OWASP maintains a dedicated Top 10 list for this class of application.",
+              "answer": "What are LLM applications?"
+            }
+          ]
+        },
+        {
+          "name": "Bug Bounty Life",
+          "clues": [
+            {
+              "value": 200,
+              "clue": "This triage outcome means somebody beat you to the report by six minutes.",
+              "answer": "What is a duplicate?"
+            },
+            {
+              "value": 400,
+              "clue": "This triage outcome means the vendor does not consider your finding a vulnerability.",
+              "answer": "What is informative?"
+            },
+            {
+              "value": 600,
+              "clue": "This document defines which assets and techniques researchers may actually test.",
+              "answer": "What is the program scope?"
+            },
+            {
+              "value": 800,
+              "clue": "Publishing before the vendor has shipped a fix violates this agreement.",
+              "answer": "What is coordinated disclosure?"
+            },
+            {
+              "value": 1000,
+              "clue": "Google Project Zero made this number of days the industry default disclosure deadline.",
+              "answer": "What is 90?"
+            }
           ]
         }
       ]
@@ -122,5 +1429,43 @@
     "answer": "What is social engineering?",
     "note": "Accept phishing if the response is justified, at the judge's discretion.",
     "audio": "assets/audio/two-kids-final-round.mp3"
-  }
+  },
+  "finalPool": [
+    {
+      "name": "Exfil",
+      "shortName": "Exfil",
+      "category": "Insider Threats",
+      "clue": "This kind of insider causes most damage without any malice at all, usually by clicking or misconfiguring something.",
+      "answer": "What is a negligent insider?",
+      "note": "Accept unintentional or accidental insider.",
+      "audio": "assets/audio/two-kids-final-round.mp3"
+    },
+    {
+      "name": "Exfil",
+      "shortName": "Exfil",
+      "category": "Attribution",
+      "clue": "This word describes assigning an intrusion to a specific actor, and it is the fastest way to start an argument among analysts.",
+      "answer": "What is attribution?",
+      "note": "Accept confident attribution at judge discretion.",
+      "audio": "assets/audio/two-kids-final-round.mp3"
+    },
+    {
+      "name": "Exfil",
+      "shortName": "Exfil",
+      "category": "Risk Math",
+      "clue": "This calculation multiplies likelihood by impact and produces a number everyone quietly disagrees with.",
+      "answer": "What is risk scoring?",
+      "note": "Accept qualitative risk assessment.",
+      "audio": "assets/audio/two-kids-final-round.mp3"
+    },
+    {
+      "name": "Exfil",
+      "shortName": "Exfil",
+      "category": "The Human Layer",
+      "clue": "Every framework, control, and appliance ultimately depends on this person doing the right thing at 4:55 on a Friday.",
+      "answer": "What is the end user?",
+      "note": "Accept the analyst or the employee.",
+      "audio": "assets/audio/two-kids-final-round.mp3"
+    }
+  ]
 }
