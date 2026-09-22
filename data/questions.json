@@ -1,0 +1,125 @@
+{
+  "title": "Legally Distinct Answer-Question Game",
+  "rounds": [
+    {
+      "name": "Recon",
+      "shortName": "Recon",
+      "categories": [
+        {
+          "name": "Ports & Protocols",
+          "clues": [
+            { "value": 100, "clue": "This encrypted remote-login protocol usually listens on TCP port 22.", "answer": "What is SSH?" },
+            { "value": 200, "clue": "Despite its name, this port 53 protocol handles far more than translating names into addresses.", "answer": "What is DNS?" },
+            { "value": 300, "clue": "Web traffic gets its padlock when this protocol wraps HTTP in TLS, normally on port 443.", "answer": "What is HTTPS?", "lifeline": "Ask one audience member to name the protocol.", "flag": "flag{tls_before_trust}" },
+            { "value": 400, "clue": "This UDP-based protocol automatically assigns IP configuration to clients, using ports 67 and 68.", "answer": "What is DHCP?" },
+            { "value": 500, "clue": "This network-management protocol traditionally uses UDP 161 for queries and 162 for traps.", "answer": "What is SNMP?" }
+          ]
+        },
+        {
+          "name": "Malware or Metal Band",
+          "clues": [
+            { "value": 100, "clue": "Black Sabbath: malware or metal band?", "answer": "What is a metal band?" },
+            { "value": 200, "clue": "Emotet: malware or metal band?", "answer": "What is malware?" },
+            { "value": 300, "clue": "Dark Tranquillity: malware or metal band?", "answer": "What is a metal band?" },
+            { "value": 400, "clue": "TrickBot: malware or metal band?", "answer": "What is malware?" },
+            { "value": 500, "clue": "Carbanak: malware or metal band?", "answer": "What is malware?" }
+          ]
+        },
+        {
+          "name": "Default Credentials",
+          "clues": [
+            { "value": 100, "clue": "This six-letter account name is the first half of far too many default logins.", "answer": "What is admin?" },
+            { "value": 200, "clue": "Mirai famously grew its botnet by scanning IoT devices for these unchanged factory secrets.", "answer": "What are default passwords?" },
+            { "value": 300, "clue": "This database superuser often ships with no password in badly configured local installations.", "answer": "What is root?", "zeroDay": true },
+            { "value": 400, "clue": "This practice replaces a vendor-supplied password before a device touches production.", "answer": "What is credential hardening (or changing the default password)?" },
+            { "value": 500, "clue": "A password unique to each manufactured unit helps eliminate this shared-secret failure mode.", "answer": "What are per-device credentials?" }
+          ]
+        },
+        {
+          "name": "Regex or Cat Walked on Keyboard",
+          "clues": [
+            { "value": 100, "clue": "^cat$: regex or cat walked on keyboard?", "answer": "What is regex?" },
+            { "value": 200, "clue": "jjjjjjjjjjjjjjjjj: regex or cat walked on keyboard?", "answer": "What is cat walked on keyboard?" },
+            { "value": 300, "clue": "(?=.{12,})(?=.*[A-Z]): regex or cat walked on keyboard?", "answer": "What is regex?" },
+            { "value": 400, "clue": "[A-Fa-f0-9]{64}: regex or cat walked on keyboard?", "answer": "What is regex?" },
+            { "value": 500, "clue": "qazwsxedcrfvtgbyhn: regex or cat walked on keyboard?", "answer": "What is cat walked on keyboard?" }
+          ]
+        },
+        {
+          "name": "Threat Actor Names",
+          "clues": [
+            { "value": 100, "clue": "Cozy Bear and Fancy Bear are commonly linked to intelligence services in this country.", "answer": "What is Russia?" },
+            { "value": 200, "clue": "Lazarus Group is widely attributed to this country.", "answer": "What is North Korea?" },
+            { "value": 300, "clue": "Vendor names like APT28, Fancy Bear, and Forest Blizzard can all refer to this same activity cluster.", "answer": "What is threat-actor aliasing?" },
+            { "value": 400, "clue": "Microsoft historically uses this weather event for groups it attributes to Iran.", "answer": "What is a sandstorm?" },
+            { "value": 500, "clue": "CrowdStrike's naming scheme pairs a nationality-themed adjective with this animal class.", "answer": "What is an animal (such as Bear, Panda, Kitten, or Spider)?" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Lateral Movement",
+      "shortName": "Lateral",
+      "categories": [
+        {
+          "name": "CVE or Area Code",
+          "clues": [
+            { "value": 200, "clue": "312: CVE or area code?", "answer": "What is an area code (Chicago)?" },
+            { "value": 400, "clue": "CVE-2021-44228: CVE or area code?", "answer": "What is a CVE (Log4Shell)?" },
+            { "value": 600, "clue": "404: CVE or area code?", "answer": "What is an area code (Atlanta)?" },
+            { "value": 800, "clue": "CVE-2014-0160: CVE or area code?", "answer": "What is a CVE (Heartbleed)?" },
+            { "value": 1000, "clue": "867: CVE or area code?", "answer": "What is an area code (northern Canada)?" }
+          ]
+        },
+        {
+          "name": "RFC or Fever Dream",
+          "clues": [
+            { "value": 200, "clue": "A standard for sending IP datagrams by avian carriers: RFC or fever dream?", "answer": "What is an RFC (RFC 1149)?" },
+            { "value": 400, "clue": "A Hyper Text Coffee Pot Control Protocol: RFC or fever dream?", "answer": "What is an RFC (RFC 2324)?" },
+            { "value": 600, "clue": "The Evil Bit, set by attackers to simplify firewall policy: RFC or fever dream?", "answer": "What is an RFC (RFC 3514)?" },
+            { "value": 800, "clue": "DNS over interpretive dance: RFC or fever dream?", "answer": "What is a fever dream?" },
+            { "value": 1000, "clue": "TCP option to negotiate who must bring snacks: RFC or fever dream?", "answer": "What is a fever dream?" }
+          ]
+        },
+        {
+          "name": "Compliance Theater",
+          "clues": [
+            { "value": 200, "clue": "This annual exercise proves everyone can click through 47 slides while checking email.", "answer": "What is security awareness training?" },
+            { "value": 400, "clue": "A policy last reviewed in 2017 still says 'current' because this changed on the cover page.", "answer": "What is the date?" },
+            { "value": 600, "clue": "This checkbox artifact says a control exists; evidence says whether it works.", "answer": "What is an attestation (or self-assessment)?", "zeroDay": true },
+            { "value": 800, "clue": "Buying this shiny appliance without staffing it is a classic way to pass an audit and miss an incident.", "answer": "What is a security tool (accept SIEM, EDR, or similar with justification)?" },
+            { "value": 1000, "clue": "This phrase describes meeting the letter of a requirement without reducing the actual risk.", "answer": "What is compliance theater?" }
+          ]
+        },
+        {
+          "name": "Breaches You Read About",
+          "clues": [
+            { "value": 200, "clue": "In 2013, this retailer's breach began with credentials stolen from an HVAC vendor.", "answer": "What is Target?" },
+            { "value": 400, "clue": "A 2017 breach at this credit bureau exposed data on roughly 147 million people.", "answer": "What is Equifax?" },
+            { "value": 600, "clue": "A compromised build process turned this company's Orion updates into a supply-chain vector.", "answer": "What is SolarWinds?" },
+            { "value": 800, "clue": "This pipeline operator shut down fuel delivery in 2021 after a ransomware attack.", "answer": "What is Colonial Pipeline?" },
+            { "value": 1000, "clue": "In 2023, mass exploitation of this Progress file-transfer product drove breaches worldwide.", "answer": "What is MOVEit Transfer?" }
+          ]
+        },
+        {
+          "name": "Decode This",
+          "clues": [
+            { "value": 200, "clue": "SGVsbG8=: decode this Base64 string.", "answer": "What is Hello?" },
+            { "value": 400, "clue": "0x41: decode this ASCII byte.", "answer": "What is A?" },
+            { "value": 600, "clue": "01100010 01110101 01100111: decode this binary ASCII.", "answer": "What is bug?" },
+            { "value": 800, "clue": "uryyb jbeyq: decode this ROT13 string.", "answer": "What is hello world?", "lifeline": "Let an audience member use any offline tool for 30 seconds.", "flag": "flag{friends_dont_let_friends_rot13}" },
+            { "value": 1000, "clue": "%66%6c%61%67: decode this URL-encoded text.", "answer": "What is flag?" }
+          ]
+        }
+      ]
+    }
+  ],
+  "final": {
+    "name": "Exfil",
+    "shortName": "Exfil",
+    "category": "The Human Layer",
+    "clue": "This attack relies on persuasion, urgency, or trust rather than a software vulnerability—and remains stubbornly effective.",
+    "answer": "What is social engineering?",
+    "note": "Accept phishing if the response is justified, at the judge's discretion."
+  }
+}
