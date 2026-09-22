@@ -55,6 +55,7 @@ Use CSV in either of two ways:
 
 ## Host controls
 
+- Each round randomly draws six categories from its category pool. The draw survives refreshes and round switching; **Reset game** draws a fresh set.
 - Click a square to open its clue.
 - Press Space or click **Reveal question**.
 - Correct and incorrect team buttons apply the square value. Incorrect answers leave an ordinary clue open so another team can try.

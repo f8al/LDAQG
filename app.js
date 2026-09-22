@@ -3,6 +3,7 @@
 const STORAGE_KEY = "ldaqg-state-v1";
 const DEFAULT_DATA_URL = "data/questions.json";
 const TEAM_COLORS = ["#48f58b", "#57e8ff", "#ffc857"];
+const CATEGORIES_PER_ROUND = 6;
 
 const elements = {
   board: document.querySelector("#board"),
@@ -52,7 +53,8 @@ function defaultState() {
     ],
     used: [],
     history: [],
-    finalRevealed: false
+    finalRevealed: false,
+    categorySelections: []
   };
 }
 
@@ -102,6 +104,7 @@ function validateGame(data) {
 function render() {
   if (!game) return;
   state.roundIndex = Math.min(state.roundIndex, game.rounds.length);
+  ensureCategorySelections();
   renderRoundNav();
   renderTeams();
   renderTeamInputs();
@@ -129,21 +132,25 @@ function renderRoundNav() {
 
 function renderBoard() {
   const round = game.rounds[state.roundIndex];
+  const selectedCategories = state.categorySelections[state.roundIndex].indices.map((categoryIndex) => ({
+    category: round.categories[categoryIndex],
+    categoryIndex
+  }));
   elements.board.hidden = false;
   elements.finalBoard.hidden = true;
-  elements.roundKicker.textContent = `ROUND ${String(state.roundIndex + 1).padStart(2, "0")}`;
+  elements.roundKicker.textContent = `ROUND ${String(state.roundIndex + 1).padStart(2, "0")} · ${selectedCategories.length} OF ${round.categories.length} CATEGORIES`;
   elements.roundTitle.textContent = round.name;
-  elements.board.style.setProperty("--columns", round.categories.length);
+  elements.board.style.setProperty("--columns", selectedCategories.length);
   elements.board.replaceChildren();
-  round.categories.forEach((category) => {
+  selectedCategories.forEach(({ category }) => {
     const header = document.createElement("div");
     header.className = "category";
     header.textContent = category.name;
     elements.board.append(header);
   });
-  const maxClues = Math.max(...round.categories.map((category) => category.clues.length));
+  const maxClues = Math.max(...selectedCategories.map(({ category }) => category.clues.length));
   for (let clueIndex = 0; clueIndex < maxClues; clueIndex += 1) {
-    round.categories.forEach((category, categoryIndex) => {
+    selectedCategories.forEach(({ category, categoryIndex }) => {
       const clue = category.clues[clueIndex];
       if (!clue) {
         const spacer = document.createElement("div");
@@ -401,7 +408,7 @@ function undoScore() {
 }
 
 function resetGame() {
-  if (!confirm("Reset scores, flags, and every used square? Team names will be kept.")) return;
+  if (!confirm(`Reset scores, flags, every used square, and draw ${CATEGORIES_PER_ROUND} new categories per round? Team names will be kept.`)) return;
   const names = state.teams.map((team) => team.name);
   state = defaultState();
   state.teams.forEach((team, index) => { team.name = names[index]; });
@@ -420,6 +427,7 @@ async function loadLocalFile(event) {
     state.roundIndex = 0;
     state.used = [];
     state.finalRevealed = false;
+    state.categorySelections = [];
     elements.dataSourceLabel.textContent = `Loaded locally: ${file.name} (refresh returns to the site file)`;
     elements.errorPanel.hidden = true;
     render();
@@ -492,6 +500,29 @@ function toggleFullscreen() {
 }
 
 function clueKey(round, category, clue) { return `${round}-${category}-${clue}`; }
+function ensureCategorySelections() {
+  if (!Array.isArray(state.categorySelections)) state.categorySelections = [];
+  game.rounds.forEach((round, roundIndex) => {
+    const signature = round.categories.map((category) => category.id || category.name).join("\u001f");
+    const count = Math.min(CATEGORIES_PER_ROUND, round.categories.length);
+    const saved = state.categorySelections[roundIndex];
+    const valid = saved
+      && saved.signature === signature
+      && Array.isArray(saved.indices)
+      && saved.indices.length === count
+      && new Set(saved.indices).size === count
+      && saved.indices.every((index) => Number.isInteger(index) && index >= 0 && index < round.categories.length);
+    if (!valid) {
+      const indices = round.categories.map((_, index) => index);
+      for (let index = indices.length - 1; index > 0; index -= 1) {
+        const swapIndex = Math.floor(Math.random() * (index + 1));
+        [indices[index], indices[swapIndex]] = [indices[swapIndex], indices[index]];
+      }
+      state.categorySelections[roundIndex] = { signature, indices: indices.slice(0, count) };
+    }
+  });
+  state.categorySelections.length = game.rounds.length;
+}
 function formatScore(value) { return Number(value) < 0 ? `−${Math.abs(Number(value)).toLocaleString()}` : Number(value).toLocaleString(); }
 function makeButton(text, className) { const button = document.createElement("button"); button.type = "button"; button.className = className; button.textContent = text; return button; }
 function showError(message) { elements.errorMessage.textContent = message; elements.errorPanel.hidden = false; }
