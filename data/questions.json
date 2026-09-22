@@ -120,6 +120,7 @@
     "category": "The Human Layer",
     "clue": "This attack relies on persuasion, urgency, or trust rather than a software vulnerability—and remains stubbornly effective.",
     "answer": "What is social engineering?",
-    "note": "Accept phishing if the response is justified, at the judge's discretion."
+    "note": "Accept phishing if the response is justified, at the judge's discretion.",
+    "audio": "assets/audio/two-kids-final-round.mp3"
   }
 }

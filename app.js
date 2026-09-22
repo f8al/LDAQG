@@ -38,6 +38,9 @@ const elements = {
 let game = null;
 let state = defaultState();
 let activeClue = null;
+let finalAudio = null;
+let finalAudioSource = "";
+let finalAudioButton = null;
 
 function defaultState() {
   return {
@@ -113,7 +116,7 @@ function renderRoundNav() {
   game.rounds.forEach((round, index) => {
     const button = makeButton(round.shortName || round.name, "button round-button");
     button.setAttribute("aria-current", String(state.roundIndex === index));
-    button.addEventListener("click", () => { state.roundIndex = index; render(); });
+    button.addEventListener("click", () => { stopFinalAudio(); state.roundIndex = index; render(); });
     elements.roundNav.append(button);
   });
   if (game.final) {
@@ -183,7 +186,20 @@ function renderFinal() {
     note.textContent = final.note;
     elements.finalBoard.append(note);
   }
-  elements.finalBoard.append(button);
+  const primaryControls = document.createElement("div");
+  primaryControls.className = "final-primary-controls";
+  if (final.audio) {
+    const audioButton = makeButton(
+      finalAudio && !finalAudio.paused ? "■ Stop music" : "▶ Play thinking music",
+      "button audio-control"
+    );
+    finalAudioButton = audioButton;
+    audioButton.setAttribute("aria-pressed", String(Boolean(finalAudio && !finalAudio.paused)));
+    audioButton.addEventListener("click", () => toggleFinalAudio(final.audio, audioButton));
+    primaryControls.append(audioButton);
+  }
+  primaryControls.append(button);
+  elements.finalBoard.append(primaryControls);
   const controls = document.createElement("div");
   controls.className = "clue-controls";
   state.teams.forEach((team, index) => {
@@ -328,6 +344,42 @@ function scoreFinal(teamIndex, direction, input) {
   applyScore(teamIndex, wager * direction, direction > 0 ? "final correct" : "final incorrect");
 }
 
+function toggleFinalAudio(source, button) {
+  if (!finalAudio || finalAudioSource !== source) {
+    stopFinalAudio();
+    finalAudio = new Audio(source);
+    finalAudioSource = source;
+    finalAudio.preload = "auto";
+    finalAudio.addEventListener("ended", () => updateAudioButton(finalAudioButton, false));
+    finalAudio.addEventListener("error", () => {
+      updateAudioButton(button, false);
+      showError(`Could not play the Exfil audio file: ${source}`);
+    });
+  }
+  if (finalAudio.paused) {
+    finalAudio.currentTime = 0;
+    finalAudio.play()
+      .then(() => updateAudioButton(button, true))
+      .catch((error) => showError(`Could not start Exfil audio: ${error.message}`));
+  } else {
+    stopFinalAudio();
+    updateAudioButton(button, false);
+  }
+}
+
+function updateAudioButton(button, playing) {
+  if (!button?.isConnected) return;
+  button.textContent = playing ? "■ Stop music" : "▶ Play thinking music";
+  button.setAttribute("aria-pressed", String(playing));
+}
+
+function stopFinalAudio() {
+  if (!finalAudio) return;
+  finalAudio.pause();
+  finalAudio.currentTime = 0;
+  updateAudioButton(finalAudioButton, false);
+}
+
 function markUsedAndClose() {
   if (activeClue && !state.used.includes(activeClue.key)) state.used.push(activeClue.key);
   saveState();
@@ -363,6 +415,7 @@ async function loadLocalFile(event) {
     const text = await file.text();
     const candidate = file.name.toLowerCase().endsWith(".csv") ? gameFromCsv(text) : JSON.parse(text);
     validateGame(candidate);
+    stopFinalAudio();
     game = candidate;
     state.roundIndex = 0;
     state.used = [];
@@ -384,7 +437,7 @@ function gameFromCsv(text) {
   for (const record of records) {
     const type = (record.type || "clue").toLowerCase();
     if (type === "final") {
-      data.final = { name: record.round || "Exfil", category: record.category, clue: record.clue, answer: record.answer, note: record.note };
+      data.final = { name: record.round || "Exfil", category: record.category, clue: record.clue, answer: record.answer, note: record.note, audio: record.audio };
       continue;
     }
     let round = data.rounds.find((item) => item.name === record.round);

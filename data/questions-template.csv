@@ -1,4 +1,4 @@
-type,round,category,value,clue,answer,note,zeroDay,lifeline,flag
-clue,Recon,Ports & Protocols,100,"This encrypted remote-login protocol usually listens on TCP port 22.",What is SSH?,Responses must be phrased as a question.,false,,
-clue,Recon,Ports & Protocols,200,"Web traffic gets its padlock when this protocol wraps HTTP in TLS.",What is HTTPS?,,true,"Ask one audience member.",flag{example_only}
-final,Exfil,The Human Layer,0,"This attack relies on persuasion rather than a software vulnerability.",What is social engineering?,,,,
+type,round,category,value,clue,answer,note,zeroDay,lifeline,flag,audio
+clue,Recon,Ports & Protocols,100,"This encrypted remote-login protocol usually listens on TCP port 22.",What is SSH?,Responses must be phrased as a question.,false,,,
+clue,Recon,Ports & Protocols,200,"Web traffic gets its padlock when this protocol wraps HTTP in TLS.",What is HTTPS?,,true,"Ask one audience member.",flag{example_only},
+final,Exfil,The Human Layer,0,"This attack relies on persuasion rather than a software vulnerability.",What is social engineering?,,,,,assets/audio/two-kids-final-round.mp3

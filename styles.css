@@ -152,6 +152,9 @@ dialog::backdrop { background: rgb(0 4 2 / 88%); backdrop-filter: blur(8px); }
 .final-board { min-height: 45vh; padding: clamp(1.5rem, 5vw, 5rem); border: 1px solid var(--line); border-radius: .7rem; background: linear-gradient(145deg, #10271b, #06100b); text-align: center; }
 .final-board h3 { color: var(--green); font: 800 clamp(1rem, 2vw, 1.5rem) ui-monospace, monospace; letter-spacing: .1em; text-transform: uppercase; }
 .final-board p { max-width: 1000px; margin: 2rem auto; font-size: clamp(1.7rem, 4vw, 3.6rem); font-weight: 800; }
+.final-primary-controls { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: .65rem; }
+.audio-control { color: var(--cyan); border-color: rgb(87 232 255 / 45%); background: rgb(87 232 255 / 8%); }
+.audio-control[aria-pressed="true"] { color: var(--black); border-color: var(--cyan); background: var(--cyan); }
 
 .error-panel { margin-bottom: 1rem; padding: 1rem; border: 1px solid var(--red); border-radius: .5rem; color: #ffd7da; background: rgb(255 100 109 / 10%); }
 .error-panel span { display: block; margin-top: .3rem; }

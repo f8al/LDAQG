@@ -40,11 +40,12 @@ The included GitHub Action runs the same check before publishing.
 
 Copy [`data/questions-template.csv`](data/questions-template.csv) and keep its header row. CSV columns are:
 
-`type, round, category, value, clue, answer, note, zeroDay, lifeline, flag`
+`type, round, category, value, clue, answer, note, zeroDay, lifeline, flag, audio`
 
 - Set `type` to `clue` for board squares or `final` for the Exfil clue.
 - Quote any cell containing commas, quotes, or line breaks.
 - Set `zeroDay` to `true`, `yes`, or `1` for a hidden bonus square.
+- Set `audio` on the `final` row to a site-relative MP3 path for the Exfil music control.
 - Rows stay in their file order; that determines round, category, and clue order.
 
 Use CSV in either of two ways:
@@ -62,6 +63,7 @@ Use CSV in either of two ways:
 - Scores, used squares, flags, and team names are saved in the browser.
 - **Undo score** reverses the latest score or flag award.
 - The print stylesheet produces a simple paper backup of the current board.
+- Exfil has a minimal Play/Stop control when its data contains an `audio` path. Stopping or leaving Exfil rewinds the track.
 
 ## Publish on GitHub Pages
 
