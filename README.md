@@ -1,6 +1,6 @@
 # Legally Distinct Answer-Question Game
 
-A projector-friendly, zero-build trivia board. It is plain HTML, CSS, and JavaScript, so GitHub Pages can host it directly.
+A projector-friendly, zero-build trivia board—the lowest-budget version of hacker jeopardy you'll ever laugh at. It is plain HTML, CSS, and JavaScript, so GitHub Pages can host it directly.
 
 ## Run it locally
 
