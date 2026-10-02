@@ -24,7 +24,8 @@ The live game loads [`data/questions.json`](data/questions.json). Writers only n
   "note": "Optional judge guidance.",
   "zeroDay": false,
   "lifeline": "Optional instruction for the audience lifeline.",
-  "flag": "flag{optional_prize_text}"
+  "flag": "flag{optional_prize_text}",
+  "sponsoredBy": "Optional Sponsor Name"
 }
 ```
 
@@ -56,11 +57,12 @@ The merge command normalizes category names and clue/answer text, reports everyt
 
 Copy [`data/questions-template.csv`](data/questions-template.csv) and keep its header row. CSV columns are:
 
-`type, round, category, value, clue, answer, note, zeroDay, lifeline, flag, audio`
+`type, round, category, value, clue, answer, note, zeroDay, lifeline, flag, sponsoredBy, audio`
 
 - Set `type` to `clue` for board squares or `final` for the Exfil clue.
 - Quote any cell containing commas, quotes, or line breaks.
 - Set `zeroDay` to `true`, `yes`, or `1` for a hidden bonus square.
+- Set `sponsoredBy` on any clue or final row to show a small sponsor attribution when that question is displayed.
 - Set `audio` on the `final` row to a site-relative MP3 path for the Exfil music control.
 - Rows stay in their file order; that determines round, category, and clue order.
 
@@ -78,6 +80,7 @@ Use CSV in either of two ways:
 - Correct and incorrect team buttons apply the square value. Incorrect answers leave an ordinary clue open so another team can try.
 - A Zero Day exposes a wager field and closes after the landing team's result.
 - A clue with `lifeline` enables **Use lifeline**. If the audience helper solves it, award that team a flag marker; optional `flag` text is revealed in the host view.
+- A clue or Exfil question with `sponsoredBy` displays **Sponsored by [name]** without affecting scoring or selection.
 - Scores, used squares, flags, and team names are saved in the browser.
 - **Undo score** reverses the latest score or flag award.
 - The print stylesheet produces a simple paper backup of the current board.

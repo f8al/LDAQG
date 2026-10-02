@@ -4,6 +4,7 @@
 
 - Round:
 - Category:
+- Sponsor attribution, if any:
 - Number of clues added or changed:
 
 ## Review notes
@@ -22,7 +23,7 @@
 - [ ] Each category has five clues, ordered from easier to harder.
 - [ ] I included concise `note` guidance where alternate responses or judge discretion may matter.
 - [ ] I used `zeroDay`, `lifeline`, and `flag` only where intended.
+- [ ] I used the optional `sponsoredBy` field only where an attribution should be shown, with the sponsor's approved display name.
 - [ ] I avoided the TV show's name, trademarked segment names, visual branding, and music.
 - [ ] I preserved valid JSON and ran `node scripts/validate-data.mjs` successfully.
 - [ ] I tested the affected round locally when the structure or behavior changed.
-

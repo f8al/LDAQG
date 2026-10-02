@@ -13,12 +13,14 @@ for (const [roundIndex, round] of (data.rounds || []).entries()) {
     for (const [clueIndex, clue] of (category.clues || []).entries()) {
       for (const field of ["value", "clue", "answer"]) if (clue[field] === undefined || clue[field] === "") errors.push(`${round.name} / ${category.name} / clue ${clueIndex + 1}: missing ${field}`);
       if (!Number.isFinite(Number(clue.value))) errors.push(`${round.name} / ${category.name} / clue ${clueIndex + 1}: value must be numeric`);
+      if (clue.sponsoredBy !== undefined && typeof clue.sponsoredBy !== "string") errors.push(`${round.name} / ${category.name} / clue ${clueIndex + 1}: sponsoredBy must be text`);
     }
   }
 }
 const finals = Array.isArray(data.finalPool) && data.finalPool.length ? data.finalPool : [data.final];
 for (const [finalIndex, final] of finals.entries()) {
   if (!final?.category || !final?.clue || !final?.answer) errors.push(`final ${finalIndex + 1} needs category, clue, and answer`);
+  if (final?.sponsoredBy !== undefined && typeof final.sponsoredBy !== "string") errors.push(`final ${finalIndex + 1}: sponsoredBy must be text`);
 }
 
 if (errors.length) {

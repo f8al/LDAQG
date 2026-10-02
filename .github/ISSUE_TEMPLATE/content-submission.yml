@@ -37,6 +37,13 @@ body:
     validations:
       required: true
 
+  - type: input
+    id: sponsor
+    attributes:
+      label: Sponsor attribution (optional)
+      description: If this is sponsor-submitted content, enter the exact name that should appear as “Sponsored by …”. Leave blank for community questions.
+      placeholder: Example Security Co.
+
   - type: textarea
     id: clues
     attributes:
@@ -106,4 +113,3 @@ body:
           required: true
         - label: I avoided the TV show's name, trademarked segment names, visual branding, and music.
           required: true
-

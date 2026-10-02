@@ -130,6 +130,19 @@ dialog::backdrop { background: rgb(0 4 2 / 88%); backdrop-filter: blur(8px); }
 .clue-header, .setup-header, .setup-footer { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 1.3rem; border-bottom: 1px solid var(--line); }
 .clue-header > div { display: flex; align-items: center; gap: 1rem; }
 .clue-value { color: var(--amber); font-size: 1.15rem; font-weight: 900; }
+.sponsor-label {
+  display: inline-block;
+  margin: 0;
+  padding: .3rem .55rem;
+  border: 1px solid rgb(255 200 87 / 48%);
+  border-radius: 999px;
+  color: var(--amber);
+  background: rgb(255 200 87 / 8%);
+  font: 700 .68rem/1.2 ui-monospace, monospace;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.final-board > .sponsor-label { margin: -.8rem auto 0; font-size: .75rem; }
 .icon-button { width: 2.6rem; height: 2.6rem; border: 0; border-radius: 50%; background: transparent; cursor: pointer; font-size: 2rem; line-height: 1; }
 .icon-button:hover { background: var(--panel-2); }
 .zero-day-banner { padding: .8rem 1.3rem; color: var(--black); background: var(--amber); text-align: center; }

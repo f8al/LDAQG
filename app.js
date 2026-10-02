@@ -17,6 +17,7 @@ const elements = {
   clueDialog: document.querySelector("#clue-dialog"),
   clueCategory: document.querySelector("#clue-category"),
   clueValue: document.querySelector("#clue-value"),
+  clueSponsor: document.querySelector("#clue-sponsor"),
   clueText: document.querySelector("#clue-text"),
   answerPanel: document.querySelector("#answer-panel"),
   answerText: document.querySelector("#answer-text"),
@@ -97,12 +98,14 @@ function validateGame(data) {
       if (!category.name || !Array.isArray(category.clues) || !category.clues.length) throw new Error(`Category ${categoryIndex + 1} in ${round.name} is incomplete.`);
       category.clues.forEach((clue, clueIndex) => {
         if (!Number.isFinite(Number(clue.value)) || !clue.clue || !clue.answer) throw new Error(`Clue ${clueIndex + 1} in ${category.name} needs value, clue, and answer.`);
+        if (clue.sponsoredBy !== undefined && typeof clue.sponsoredBy !== "string") throw new Error(`Clue ${clueIndex + 1} in ${category.name} has a non-text sponsoredBy value.`);
       });
     });
   });
   const finals = Array.isArray(data.finalPool) && data.finalPool.length ? data.finalPool : [data.final];
   finals.forEach((final, finalIndex) => {
     if (!final?.category || !final?.clue || !final?.answer) throw new Error(`Final question ${finalIndex + 1} needs category, clue, and answer.`);
+    if (final.sponsoredBy !== undefined && typeof final.sponsoredBy !== "string") throw new Error(`Final question ${finalIndex + 1} has a non-text sponsoredBy value.`);
   });
 }
 
@@ -194,7 +197,10 @@ function renderFinal() {
   text.textContent = state.finalRevealed ? final.answer : final.clue;
   const button = makeButton(state.finalRevealed ? "Show clue" : "Reveal question", "button button-primary");
   button.addEventListener("click", () => { state.finalRevealed = !state.finalRevealed; renderFinal(); saveState(); });
-  elements.finalBoard.append(title, text);
+  elements.finalBoard.append(title);
+  const sponsor = makeSponsorLabel(final.sponsoredBy);
+  if (sponsor) elements.finalBoard.append(sponsor);
+  elements.finalBoard.append(text);
   if (state.finalRevealed && final.note) {
     const note = document.createElement("p");
     note.className = "answer-note";
@@ -279,6 +285,8 @@ function openClue(context) {
   const { clue, category } = context;
   elements.clueCategory.textContent = category.name;
   elements.clueValue.textContent = formatScore(clue.value);
+  elements.clueSponsor.textContent = clue.sponsoredBy ? `Sponsored by ${clue.sponsoredBy}` : "";
+  elements.clueSponsor.hidden = !clue.sponsoredBy;
   elements.clueText.textContent = clue.clue;
   elements.answerText.textContent = clue.answer;
   elements.answerNote.textContent = clue.note || "Responses must be phrased as a question.";
@@ -456,7 +464,7 @@ function gameFromCsv(text) {
   for (const record of records) {
     const type = (record.type || "clue").toLowerCase();
     if (type === "final") {
-      data.final = { name: record.round || "Exfil", category: record.category, clue: record.clue, answer: record.answer, note: record.note, audio: record.audio };
+      data.final = { name: record.round || "Exfil", category: record.category, clue: record.clue, answer: record.answer, note: record.note, sponsoredBy: record.sponsoredBy, audio: record.audio };
       continue;
     }
     let round = data.rounds.find((item) => item.name === record.round);
@@ -476,7 +484,8 @@ function gameFromCsv(text) {
       note: record.note,
       zeroDay: ["true", "yes", "1"].includes(record.zeroDay?.toLowerCase()),
       lifeline: record.lifeline,
-      flag: record.flag
+      flag: record.flag,
+      sponsoredBy: record.sponsoredBy
     });
   }
   return data;
@@ -511,6 +520,13 @@ function toggleFullscreen() {
 }
 
 function clueKey(round, category, clue) { return `${round}-${category}-${clue}`; }
+function makeSponsorLabel(name) {
+  if (!name) return null;
+  const label = document.createElement("p");
+  label.className = "sponsor-label";
+  label.textContent = `Sponsored by ${name}`;
+  return label;
+}
 function getFinalCandidates() {
   if (Array.isArray(game?.finalPool) && game.finalPool.length) return game.finalPool;
   return game?.final ? [game.final] : [];
