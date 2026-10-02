@@ -21,13 +21,15 @@ The live game loads [`data/questions.json`](data/questions.json). Writers only n
   "value": 300,
   "clue": "The prompt shown to contestants.",
   "answer": "What is the accepted response?",
-  "note": "Optional judge guidance.",
+  "note": null,
   "zeroDay": false,
-  "lifeline": "Optional instruction for the audience lifeline.",
-  "flag": "flag{optional_prize_text}",
-  "sponsoredBy": "Optional Sponsor Name"
+  "lifeline": null,
+  "flag": null,
+  "sponsoredBy": null
 }
 ```
+
+Every question includes these optional fields explicitly. Use `null` (or `false`) for `note`, `lifeline`, `flag`, and `sponsoredBy` when unused, and `false` for `zeroDay`. Replace the default only when the feature should be active; empty optional values are never displayed.
 
 Run this before committing:
 

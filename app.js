@@ -98,14 +98,19 @@ function validateGame(data) {
       if (!category.name || !Array.isArray(category.clues) || !category.clues.length) throw new Error(`Category ${categoryIndex + 1} in ${round.name} is incomplete.`);
       category.clues.forEach((clue, clueIndex) => {
         if (!Number.isFinite(Number(clue.value)) || !clue.clue || !clue.answer) throw new Error(`Clue ${clueIndex + 1} in ${category.name} needs value, clue, and answer.`);
-        if (clue.sponsoredBy !== undefined && typeof clue.sponsoredBy !== "string") throw new Error(`Clue ${clueIndex + 1} in ${category.name} has a non-text sponsoredBy value.`);
+        for (const field of ["note", "lifeline", "flag", "sponsoredBy"]) {
+          if (!isOptionalText(clue[field])) throw new Error(`Clue ${clueIndex + 1} in ${category.name} has an invalid ${field} value.`);
+        }
       });
     });
   });
-  const finals = Array.isArray(data.finalPool) && data.finalPool.length ? data.finalPool : [data.final];
-  finals.forEach((final, finalIndex) => {
+  const selectableFinals = Array.isArray(data.finalPool) && data.finalPool.length ? data.finalPool : [data.final];
+  const finalsToValidate = [...new Set([data.final, ...selectableFinals].filter(Boolean))];
+  finalsToValidate.forEach((final, finalIndex) => {
     if (!final?.category || !final?.clue || !final?.answer) throw new Error(`Final question ${finalIndex + 1} needs category, clue, and answer.`);
-    if (final.sponsoredBy !== undefined && typeof final.sponsoredBy !== "string") throw new Error(`Final question ${finalIndex + 1} has a non-text sponsoredBy value.`);
+    for (const field of ["note", "lifeline", "flag", "sponsoredBy"]) {
+      if (!isOptionalText(final[field])) throw new Error(`Final question ${finalIndex + 1} has an invalid ${field} value.`);
+    }
   });
 }
 
@@ -201,10 +206,11 @@ function renderFinal() {
   const sponsor = makeSponsorLabel(final.sponsoredBy);
   if (sponsor) elements.finalBoard.append(sponsor);
   elements.finalBoard.append(text);
-  if (state.finalRevealed && final.note) {
+  const finalNote = optionalText(final.note);
+  if (state.finalRevealed && finalNote) {
     const note = document.createElement("p");
     note.className = "answer-note";
-    note.textContent = final.note;
+    note.textContent = finalNote;
     elements.finalBoard.append(note);
   }
   const primaryControls = document.createElement("div");
@@ -283,18 +289,21 @@ function renderTeamInputs() {
 function openClue(context) {
   activeClue = context;
   const { clue, category } = context;
+  const sponsor = optionalText(clue.sponsoredBy);
   elements.clueCategory.textContent = category.name;
   elements.clueValue.textContent = formatScore(clue.value);
-  elements.clueSponsor.textContent = clue.sponsoredBy ? `Sponsored by ${clue.sponsoredBy}` : "";
-  elements.clueSponsor.hidden = !clue.sponsoredBy;
+  elements.clueSponsor.textContent = sponsor ? `Sponsored by ${sponsor}` : "";
+  elements.clueSponsor.hidden = !sponsor;
   elements.clueText.textContent = clue.clue;
   elements.answerText.textContent = clue.answer;
-  elements.answerNote.textContent = clue.note || "Responses must be phrased as a question.";
+  const note = optionalText(clue.note);
+  elements.answerNote.textContent = note;
+  elements.answerNote.hidden = !note;
   elements.zeroDayBanner.hidden = !clue.zeroDay;
   elements.answerPanel.hidden = true;
   elements.judgeControls.hidden = true;
   elements.revealButton.hidden = false;
-  elements.lifelineButton.hidden = !clue.lifeline;
+  elements.lifelineButton.hidden = !optionalText(clue.lifeline);
   elements.lifelinePanel.hidden = true;
   elements.flagText.hidden = true;
   elements.wagerControl.hidden = !clue.zeroDay;
@@ -311,10 +320,12 @@ function revealAnswer() {
 }
 
 function revealLifeline() {
-  if (!activeClue?.clue.lifeline) return;
-  elements.lifelineText.textContent = activeClue.clue.lifeline;
-  elements.flagText.textContent = activeClue.clue.flag || "Flag awarded by the judge.";
-  elements.flagText.hidden = !activeClue.clue.flag;
+  const lifeline = optionalText(activeClue?.clue.lifeline);
+  if (!lifeline) return;
+  const flag = optionalText(activeClue.clue.flag);
+  elements.lifelineText.textContent = lifeline;
+  elements.flagText.textContent = flag || "Flag awarded by the judge.";
+  elements.flagText.hidden = !flag;
   elements.lifelinePanel.hidden = false;
   elements.lifelineButton.hidden = true;
   elements.judgeControls.hidden = false;
@@ -520,11 +531,18 @@ function toggleFullscreen() {
 }
 
 function clueKey(round, category, clue) { return `${round}-${category}-${clue}`; }
+function isOptionalText(value) {
+  return value === undefined || value === null || value === false || typeof value === "string";
+}
+function optionalText(value) {
+  return typeof value === "string" ? value.trim() : "";
+}
 function makeSponsorLabel(name) {
-  if (!name) return null;
+  const sponsor = optionalText(name);
+  if (!sponsor) return null;
   const label = document.createElement("p");
   label.className = "sponsor-label";
-  label.textContent = `Sponsored by ${name}`;
+  label.textContent = `Sponsored by ${sponsor}`;
   return label;
 }
 function getFinalCandidates() {
